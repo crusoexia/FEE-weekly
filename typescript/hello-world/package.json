@@ -1,0 +1,35 @@
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "",
+  "main": "helloworld.js",
+  "scripts": {
+    "start": "node built/local/helloworld.js",
+    "build": "npx tsc",
+    "test": "npx jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "faker": "^4.1.0",
+    "lodash": "^4.17.10"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.110",
+    "@types/node": "^10.5.2",
+    "jest": "^23.3.0",
+    "ts-jest": "^23.0.0",
+    "typescript": "^2.9.2"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": ".*\\.test\\.(ts|tsx|js)$"
+  }
+}
