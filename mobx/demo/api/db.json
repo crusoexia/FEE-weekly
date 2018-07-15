@@ -1,0 +1,7 @@
+{
+  "todos": [
+    { "id": "1", "content": "setup project", "completed": false },
+    { "id": "2", "content": "common use case", "completed": false },
+    { "id": "3", "content": "test async action", "completed": false }
+  ]
+}

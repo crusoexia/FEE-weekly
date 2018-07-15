@@ -1,21 +1,34 @@
+// @flow
+
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { inject } from 'mobx-react';
+import TodoInput from './components/TodoInput';
+import TodoList from './components/TodoList';
 import './App.css';
 
-class App extends Component {
+type Props = {
+  onAppMounted: () => void
+};
+
+class App extends Component<Props, {}> {
+  componentDidMount() {
+    this.props.onAppMounted();  
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <section>
+          <TodoInput />
+          <TodoList />
+        </section>
       </div>
     );
   }
 }
 
-export default App;
+export default inject(({ store }) => {
+  return {
+    onAppMounted: store.appMounted
+  }
+})(App);

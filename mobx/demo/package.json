@@ -27,8 +27,11 @@
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
+    "lodash": "^4.17.10",
     "mobx": "^5.0.3",
+    "mobx-devtools-mst": "^0.9.18",
     "mobx-react": "^5.2.3",
+    "mobx-state-tree": "^2.2.0",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
@@ -49,7 +52,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "start:api": "json-server --watch ./api/db.json --port 4000",
+    "bootRun": "concurrently \"npm:start\" \"npm:start:api\""
   },
   "jest": {
     "collectCoverageFrom": [
@@ -90,15 +95,26 @@
       "react-app"
     ],
     "plugins": [
-      "transform-decorators"
+      "transform-decorators-legacy"
     ]
   },
   "eslintConfig": {
     "extends": "react-app"
   },
   "devDependencies": {
-    "babel-plugin-transform-decorators": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "concurrently": "^3.6.1",
     "flow-bin": "^0.76.0",
-    "flow-typed": "^2.5.1"
+    "flow-typed": "^2.5.1",
+    "json-server": "^0.14.0",
+    "mobx-react-devtools": "^5.0.1"
+  },
+  "proxy": {
+    "^/api": {
+      "target": "http://localhost:4000",
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
   }
 }
