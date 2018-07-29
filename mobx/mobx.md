@@ -1,5 +1,6 @@
 autoscale: true
 build-lists: true
+slidenumbers: true
 theme: Sketchnote, 1
 
 # MobX
@@ -8,7 +9,9 @@ theme: Sketchnote, 1
 
 ---
 
-# Transparently applying functional reaction programming
+# Transparently applying [Functional Reactive Programming](https://en.wikipedia.org/wiki/Functional_reactive_programming)[^1]
+
+[^1]: [Mobx vs Reactive Stream Libraries](https://github.com/mobxjs/mobx/wiki/Mobx-vs-Reactive-Stream-Libraries-\(RxJS,-Bacon,-etc\))
 
 ---
 
@@ -49,7 +52,7 @@ theme: Sketchnote, 1
 
 # Dump & Stateful
 
-## Provider and inject
+## Provider & inject
 
 ---
 
@@ -76,4 +79,4 @@ theme: Sketchnote, 1
 
 # Conclution
 
-Perfect for quick development and simple project. The way to use it is very direct. It's multiple stores, actions are more respect to Flux compare to Redux's single store and fp, but much simpler than original Flux.
+:thumbsup: Perfect for quick development and simple projects. The way to use it is very direct. It's multiple stores, actions are more respect to Flux compare to Redux's single store and fp, but much simpler than original Flux.
