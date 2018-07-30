@@ -66,6 +66,7 @@ theme: Sketchnote, 1
 * Flexible
 * Reactive
 * Beautiful code structure by combine state, action, computed in single class
+* By define the domain models, the state structure is very clear by reading the code
 
 ---
 
