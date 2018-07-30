@@ -11,7 +11,7 @@ import { fetchTodos } from '../endPoints/todoEndPoint';
 
 export default class TodoStore {
   @observable todos: Todo[] = [];
-  @observable editingTodo: ?number;
+  @observable editingTodo: ?string;
 
   @computed get incompleteTodos(): Todo[] {
     console.log('[TodoStore]#incompleteTodos changed');
@@ -39,7 +39,7 @@ export default class TodoStore {
     this.todos.push(new Todo({ content }));
   }
 
-  @action.bound editTodo(todoId: number) {
+  @action.bound editTodo(todoId: string) {
     this.editingTodo = todoId;
   }
 

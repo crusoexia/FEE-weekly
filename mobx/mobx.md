@@ -32,7 +32,6 @@ theme: Sketchnote, 1
 * @observable
 * @computed
 * @action
-* @observer
 * autorun & reaction
 
 ---
@@ -57,6 +56,13 @@ theme: Sketchnote, 1
 ---
 
 # Async action
+
+---
+
+# Change state in action, good or bad?
+
+* It's handy when the action only affect single state. :thumbsup:
+* It is not very fun when an action need to be awared by multiple states. :thumbsdown:
 
 ---
 

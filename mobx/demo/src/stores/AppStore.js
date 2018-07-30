@@ -15,6 +15,11 @@ class AppStore {
   @action.bound appMounted() {
     this.todoStore.fetchTodos();
   }
+
+  @action.bound addTodo() {
+    this.todoStore.addTodo(this.uiStore.inputingTodo);
+    this.uiStore.inputingTodo = '';
+  }
 }
 
 export default new AppStore();

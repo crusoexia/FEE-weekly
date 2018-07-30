@@ -4,6 +4,7 @@ import {
   observable,
   action
 } from 'mobx';
+import todoStore from './TodoStore';
 
 const UIStore = observable({
   inputingTodo: ''
