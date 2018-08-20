@@ -68,3 +68,4 @@ The problem force us think: Why we create multiple `FileAccessor` at the first p
 
 * A simple signal is when you found you have to repeat a piece of code in more than one place.
 * When you feel something is not right, fix it!
+* The earlier to start refactor, the less you will suffer
