@@ -1,0 +1,12 @@
+{
+  "name": "demos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "html5-dnd.js",
+  "scripts": {
+    "start": "open html5-dnd.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

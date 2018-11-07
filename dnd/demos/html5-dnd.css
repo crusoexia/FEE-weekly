@@ -1,0 +1,17 @@
+body {
+  display: flex;
+}
+
+ul {
+  list-style: none;
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 160px;
+  margin: 20px;
+}
+
+li {
+  margin: 10px;
+  border: 1px dashed #8832ff;
+  padding: 8px;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 dnd</title>
+
+  <link rel="stylesheet" href="./html5-dnd.css">
+</head>
+<body>
+  <ul id="source_list">
+    <li id="li1" draggable="true">item one</li>
+    <li id="li2" draggable="true">item two</li>
+    <li id="li3" draggable="true">item three</li>
+    <li id="li4" draggable="true">item four</li>
+    <li id="li5" draggable="true">item five</li>
+  </ul>
+
+  <ul id="target_list"></ul>
+
+  <script src="https://unpkg.com/@reactivex/rxjs@6.3.3/dist/global/rxjs.umd.js"></script>
+  <script>
+    const { flatMap } = rxjs.operators;
+    dragImage();
+
+    function dragImage() {
+      const img = new Image(100, 100);
+      img.src = './dropbox.png';
+      return img;
+    }
+
+    // drag sourses
+    rxjs.of(...document.getElementsByTagName('li'))
+      .pipe(flatMap(el => rxjs.fromEvent(el, 'dragstart')))
+      .subscribe(ev => {
+        ev.dropEffect = 'move';
+        ev.dataTransfer.setDragImage(dragImage(), 64, 64);
+        ev.dataTransfer.setData('text/elementId', ev.target.id);
+      });
+
+    // drop target
+    const targetList = document.getElementById('target_list');
+    rxjs.fromEvent(targetList, 'drop').subscribe(ev => {
+      ev.preventDefault();
+      const elId = ev.dataTransfer.getData('text/elementId');
+      ev.target.appendChild(document.getElementById(elId));
+    });
+    rxjs.fromEvent(targetList, 'dragover').subscribe(ev => {
+      ev.dataTransfer.dropEffect = 'move';
+      ev.preventDefault();
+    });
+  </script>
+</body>
+</html>
