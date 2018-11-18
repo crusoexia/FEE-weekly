@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node server/app.js",
     "start:client": "NODE_ENV=development webpack-dev-server --open --config ./client/config/webpack.config.js",
     "prebuild": "rm -rf ./client/dist",
     "build": "npm run build:client && npm run build:clientLegacy",
