@@ -1,0 +1,41 @@
+{
+  "name": "differentiation-bundle-distribute",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "start:client": "NODE_ENV=development webpack-dev-server --open --config ./client/config/webpack.config.js",
+    "prebuild": "rm -rf ./client/dist",
+    "build": "npm run build:client && npm run build:clientLegacy",
+    "build:client": "NODE_ENV=production BROWSERSLIST_ENV=modern webpack --config ./client/config/webpack.config.js",
+    "build:clientLegacy": "NODE_ENV=production BROWSERSLIST_ENV=legacy webpack --config ./client/config/webpack.legacy.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "browserslist-useragent": "^2.0.1",
+    "express": "^4.16.4",
+    "faker": "^4.1.0",
+    "lodash": "^4.17.11",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "clean-webpack-plugin": "^1.0.0",
+    "compression-webpack-plugin": "^2.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "terser-webpack-plugin": "^1.1.0",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}
