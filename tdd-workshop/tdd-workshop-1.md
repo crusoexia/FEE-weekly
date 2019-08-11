@@ -30,4 +30,4 @@ Play with the [todo list](https://backbonejs.org/examples/todos/index.html), fig
 
 ---
 
-# 5. Write another specification for this task, repeat the steps *3* - *4* until all functional specification have been done.
+# 5. Write another specification for this task, repeat the steps *3* - *4* until all functional specification have been finished.
