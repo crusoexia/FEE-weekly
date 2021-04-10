@@ -5,7 +5,10 @@ build-lists: true
 
 ---
 
-# What does an architect do?
+# What does a software architect do?
+
+* A programmer; and continues to be a programmer; they are best programmers.
+* Guide the rest of the team toward a design that maximized productivity.
 
 ---
 
@@ -18,13 +21,6 @@ build-lists: true
 ---
 
 > The low-level details and the high-level structure are all part of the same whole. They form a continuous fabric that defines the sharp of the system.
-
----
-
-# What does a software architect do?
-
-* A programmer; and continues to be a programmer; they are best programmers.
-* Guide the rest of the team toward a design that maximized productivity.
 
 ---
 
