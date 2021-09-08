@@ -36,7 +36,7 @@ theme: Plain Jane, 1
 
 ---
 
-![inline](compare diagram.png)
+![inline](./diagram/compare diagram.png)
 
 * Always be fast => clean code => refactor for changes => confidence => tests => TDD
 
