@@ -29,6 +29,13 @@ function handleInput(input: string) {
 
 ---
 
+# Common misunderstanding
+
+* UT is all about coverage
+* With UT there should be no bug
+
+---
+
 # FAQs
 
 ---
