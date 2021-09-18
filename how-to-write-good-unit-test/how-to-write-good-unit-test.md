@@ -1,5 +1,10 @@
 # How to write good unit test?
 
+* Avoid testing __How__ things work, focus on __What__ they do.
+* Given -> When -> Then.
+* One suite focus on one thing.
+* Independent
+
 ---
 
 # What is a **GOOD** unit test?
@@ -42,5 +47,6 @@ function handleInput(input: string) {
 
 * Happy path, bad path.
 * One big suit to cover everything for reuse the preparations vs many small suites which duplicate the preparations?
+* Multi assertion in single suit or one assertion for each suit?(For example, test option's selected state)
 * Should I cover all of the dependent module's paths in consumer modules?
 * Should I cover all of the cases that already covered in the source modules in the module which I want to extract from the source module when doing refactor?
