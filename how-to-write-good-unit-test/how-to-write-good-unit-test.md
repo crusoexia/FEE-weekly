@@ -73,3 +73,20 @@ Don't just MAKE it pass. Try to make it fail first.
 * Multi assertion in single suit or one assertion for each suit?(For example, test option's selected state)
 * Should I cover all of the dependent module's paths in consumer modules?
 * Should I cover all of the cases that already covered in the source modules in the module which I want to extract from the source module when doing refactor?
+
+Notes
+---------------
+
+1. When is the UT most valuable(helpful)?
+  - when it is failed.(with useful info)
+  - An UT never fail is just a **dumb**.
+2. When has the UT most valueless(helpless)?
+  - When it is failed.(with no useful info and even confuion info).
+3. How to wright good UT without tears.
+  - Good code leads to good and easy UT.
+  - Less mock - Less side effect
+  - consentrate to core logic
+  - Push the side effect to the edges.
+  - Make UT not focus on the mock(or other boilplates). Let the reader easy to focus on the real valueable stuffs.
+  - A void function without paramis terrible.
+  - UT should atomicity & independency.
