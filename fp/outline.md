@@ -8,10 +8,11 @@ Thoughts
 
 ### Basic terminologies:
 First-Class Function (High order function)
-Purity
-Currying | Partial programming
 Point free
-Debugging
+Purity
+Higher-order Function
+Partial programming
+Currying
 
 ### Type
 Container
@@ -28,3 +29,5 @@ IO
 ### Monadic Onions
 join
 chain(FlatMap)
+
+### Applicative
