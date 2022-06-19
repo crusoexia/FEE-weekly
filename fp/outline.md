@@ -8,9 +8,12 @@ Thoughts
 
 ### Basic terminologies:
 First-Class Function (High order function)
-Purity
-Currying | Partial programming
 Point free
+Purity
+
+### Partial programming
+High order function
+Currying
 Debugging
 
 ### Type

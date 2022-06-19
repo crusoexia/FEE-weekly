@@ -4,9 +4,7 @@
 
 # First Class Citizen
 
----
-
-# What does it mean?
+## What does it mean?
 
 It is a data type just like any other data types that cann be:
 
@@ -16,20 +14,20 @@ It is a data type just like any other data types that cann be:
 
 ---
 
-# Why does it matter?
+# Examples
 
 ```js
+// redundent
 const hi = name => `Hi ${name}!`;
 const greeting = name => hi(name);
-```
 
-First class function
-```js
+// first class function
 const hi = name => `Hi ${name}!`;
 const greeting = hi;
 ```
 
-More examples
+---
+
 ```js
 // redundent
 ajaxCall(json => callback(json));
@@ -38,10 +36,12 @@ ajaxCall(json => callback(json));
 ajaxCall(callback);
 ```
 
+---
+
 ```js
 // redundent
 users
-  .filter((user) => user.age >= 18)
+  .filter(user => user.age >= 18)
   .map(user => user.name)
   .forEach(userName => greeting(userName));
 
@@ -54,7 +54,13 @@ users
 
 ---
 
-# Point free
+# Pointfree style
+
+It means functions that never mention the data upon which they operate.
+
+It remove redundent names and keep us focus on the transformation itself.
+
+> Not all functional code is pointfree and that is O.K.
 
 ---
 
@@ -110,8 +116,4 @@ const checkAge = (age) => {
 
 ---
 
-# Currying | Partial programming
-
----
-
-# Debugging
+# Practice
