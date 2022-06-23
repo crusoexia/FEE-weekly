@@ -1,3 +1,5 @@
+theme: Huerta, 6
+
 # First Class Function
 
 ---
@@ -13,44 +15,63 @@ It is a data type just like any other data types that cann be:
 * Passed/Return as function parameters.
 
 ---
+[.build-lists: true]
 
-# Examples
+# Example 1
 
-```js
-// redundent
-const hi = name => `Hi ${name}!`;
-const greeting = name => hi(name);
+* __Redundant__
 
-// first class function
-const hi = name => `Hi ${name}!`;
-const greeting = hi;
-```
+    ```js
+    const hi = name => `Hi ${name}!`;
+    const greeting = name => hi(name);
+    ```
 
----
+* __First class function__
 
-```js
-// redundent
-ajaxCall(json => callback(json));
-
-// first class function
-ajaxCall(callback);
-```
+    ```js
+    const hi = name => `Hi ${name}!`;
+    const greeting = hi;
+    ```
 
 ---
+[.build-lists: true]
 
-```js
-// redundent
-users
-  .filter(user => user.age >= 18)
-  .map(user => user.name)
-  .forEach(userName => greeting(userName));
+# Example 2
 
-// first class function
-users
-  .filter(_.compose(_.gte(18), _.prop('age')))
-  .map(_.prop('name'))
-  .forEach(greeting);
-```
+* __Redundant__
+
+    ```js
+    ajaxCall(json => callback(json));
+    ```
+
+* __First class function__
+
+    ```js
+    ajaxCall(callback);
+    ```
+
+---
+[.build-lists: true]
+
+# Example 3
+
+* __Redundant__
+
+    ```js
+    users
+      .filter(user => user.age >= 18)
+      .map(user => user.name)
+      .forEach(userName => greeting(userName));
+    ```
+
+* __First class function__
+
+    ```js
+    users
+      .filter(_.compose(_.gte(18), _.prop('age')))
+      .map(_.prop('name'))
+      .forEach(greeting);
+    ```
 
 ---
 
