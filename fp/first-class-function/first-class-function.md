@@ -144,6 +144,12 @@ const fpBookNames = compose(map(prop('bookName')), filter(isFpBook))(books);
 
 # Partial Application
 
+Let's implement a function `gte` which determind whether the given number is greater or equal than the target:
+
+```javascript
+
+```
+
 In previous example 
 
 ```javascript
