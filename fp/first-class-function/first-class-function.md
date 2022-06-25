@@ -144,32 +144,78 @@ const fpBookNames = compose(map(prop('bookName')), filter(isFpBook))(books);
 
 # Partial Application
 
-Let's implement a function `gte` which determind whether the given number is greater or equal than the target:
+Let's implement a function `gte` which determine whether the given number is greater or equal than the target:
 
 ```javascript
-
+const gte = (target, source) => (source >= target);
 ```
 
-In previous example 
+Now let's use it to determine adults:
 
 ```javascript
-const isFpBook = compose(eq('FP'), prop('topic'));
+gte(18, john.age);
+gte(18, jan.age);
+gte(18, foo.age);
 ```
 
-Pay attention to the _eq_ and _prop_ functions, how could we use it like this?
+Notice the repeated `18`, it is quite redundant.
 
 ---
 
-# Implement `eq`
+An update version:
 
-```ts
-const eq = <T, S>(target: T) => (source: S) => (source === target);
+```javascript
+const isGreaterThan18 = (source) => (source >= 18)
+
+isGreaterThan18(john.age);
+isGreaterThan18(jan.age);
+isGreaterThan18(foo.age);
 ```
 
-# Implement `prop`
+Now we are happy with this use case, but the function is less generic. What if we also want to compare with other numbers?
 
-```ts
-const prop = (propName: string) => (sourceObj: Record<string, unknown>) => sourceObj[propName];
+```javascript
+const isGreaterThan35 = (source) => (source >= 35);
+const isGreaterThan55 = (source) => (source >= 55);
+const isGreaterThan65 = (source) => (source >= 65);
+```
+
+Again, we found us repeatly building something similar because of we lose the generalize utility.
+
+---
+
+# One at a time
+
+Refactor the original `gte`
+
+```javascript
+const gte = (target) => (source) => source >= target;
+
+const isGreaterThan18 = gte(18);
+const isGreaterThan35 = gte(35);
+const isGreaterThan55 = gte(55);
+
+isGreaterThan18(john.age);
+isGreaterthan18(jan.age);
+isGreaterThan18(foo.age);
+
+gte(65)(john.age);
+```
+
+With this pattern, we can get specialize from generalize; build new from existing, that is the __spirit of FP__, that is abstruction.
+
+More importantly, we can separate in time/space to _parcially_ apply the arguments, it makes composition much easier:
+
+```javascript
+compose(
+  each(printName), 
+  filter(
+    compose(
+      gte(18),
+      prop('age'),
+    ),
+  ),
+)(users)
 ```
 
 [Online sample](https://codepen.io/crusoexia/pen/yLvmMaB)
