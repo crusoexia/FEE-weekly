@@ -186,7 +186,7 @@ Again, we found us repeatly building something similar because of we lose the ge
 
 # One at a time
 
-Refactor the original `gte`
+Refactor the `gte`
 
 ```javascript
 const gte = (target) => (source) => source >= target;
@@ -204,7 +204,11 @@ gte(65)(john.age);
 
 With this pattern, we can get specialize from generalize; build new from existing, that is the __spirit of FP__, that is abstruction.
 
-More importantly, __we can separate in time/space to parcially apply the arguments__, it makes composition much easier:
+---
+
+> Partial application allow us separate in _time_ and _space_ to parcially apply the arguments.
+
+It makes composition much easier:
 
 ```javascript
 compose(
@@ -224,8 +228,6 @@ compose(
 
 # Currying
 
----
-
 Consider function:
 
 ```
@@ -242,6 +244,7 @@ x = i(c);
 ```
 
 Put together
+
 ```
 x = curry(f)(a)(b)(c);
 ```
@@ -251,3 +254,10 @@ x = curry(f)(a)(b)(c);
 # Currying Usage
 
 [Live playground](https://codepen.io/crusoexia/pen/QWQepvX)
+
+---
+
+# Put all together
+
+* [fp-light workshop](https://codepen.io/crusoexia/pen/eYMNPma)
+* [sample](https://codepen.io/crusoexia/pen/QWmdbNW)
