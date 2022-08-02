@@ -35,7 +35,7 @@ The container "F" hosts the value "a".
 
 # What is "Container"
 
-The ability and a standard way to construct type-wrapped value.
+The ability and a standard way to construct values wrapped within some context.
 
 ```javascript
 // Container defined in mostly-adequate-guide 
@@ -64,4 +64,42 @@ Just 1
 
 ---
 
-## Functor and Monad
+# Functor
+
+![inline](./functor.png)
+
+* “Functors” are the containers that can be used with “map” function. - _Mostly Adequate Guide_
+* Functor is any data type that defines how “fmap” applies to it. - _Haskell_
+* A Functor is a "Container" which can apply functions to its value obey some law.
+
+---
+
+# Interesting facts of Functor
+
+* Different Functor has different implementation of `map`.
+* We safely keep the operation inside the Container, which can achieve some mighty effect like lazy evaluation, change impure action to pure action.
+* The result of the `map` is also a Functor, which means it can keep `map` away, it is the base infrastructure for composition.
+
+---
+
+# Array
+
+---
+
+# Identity
+
+---
+
+# Maybe
+
+---
+
+# Either
+
+---
+
+# IO
+
+---
+
+# Monad
