@@ -1,6 +1,6 @@
 theme: Huerta, 6
 
-# First Class Function
+# FP-light JavaScript
 
 ---
 
