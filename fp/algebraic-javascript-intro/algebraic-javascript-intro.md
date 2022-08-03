@@ -99,10 +99,18 @@ Just 1
 
 ---
 
+# Applicative
+
+---
+
 # Monad
 
 * you apply a function that returns a wrapped value, to a wrapped value using >>=
 * Monad is any data type that defines how “fmap” applies to it. - _Haskell_
+
+---
+
+# Traversable
 
 ---
 
