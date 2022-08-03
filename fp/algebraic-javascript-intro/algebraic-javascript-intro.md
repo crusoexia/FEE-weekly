@@ -1,4 +1,5 @@
 theme: Huerta, 6
+autoscale: true
 
 # Algebraic JavaScript
 
@@ -25,6 +26,20 @@ theme: Huerta, 6
 
 ---
 
+# Functional programming languages
+
+* Haskell
+* Elm
+
+---
+
+# JavaScript libraries:
+
+* Ramda
+* Sanctuary
+
+---
+
 # Putting the value into box - Container.
 
 ![inline](./container.png)
@@ -35,8 +50,12 @@ The container "F" hosts the value "a".
 
 # What is "Container"
 
+[.column]
 The ability and a standard way to construct values wrapped within some context.
 
+In native fp languages like Haskell and Elm, there is not a concept called "Container". It is just natural to host value in type structures.
+
+[.column]
 ```javascript
 // Container defined in mostly-adequate-guide 
 class Container {
@@ -60,8 +79,6 @@ S.Just(1);
 Just 1
 ```
 
-[.footer: In native fp languages like Haskell and Elm, there is not a concept called "Container". It is just natural to host value in type structures.]
-
 ---
 
 # Functor
@@ -82,24 +99,12 @@ Just 1
 
 ---
 
-# Array
-
----
-
-# Identity
-
----
-
-# Maybe
-
----
-
-# Either
-
----
-
-# IO
-
----
-
 # Monad
+
+---
+
+# References
+
+* Fantasy Land
+* Mostly Adequate Guide
+* Math Is Fun
