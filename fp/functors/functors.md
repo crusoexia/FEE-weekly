@@ -54,7 +54,26 @@ Array is an Functor by our definition.
 ```javascript
 Array.of(6) // Array [6]
 
-Array.of(9).map(Math.sqrt) // Array [3]
+const add = curry((a, b) => (a + b));
+
+Array.of(6).map(add(10)).map(Math.sqrt) // Array [4]
+```
+
+---
+
+# Map For Functor
+
+Though we can keep map functions to a Functor by calling `Functor.map`, but sometimes it is not very handy, we want a more flexible way to compose the functions applied to the Functors.
+
+```javascript
+const map = curry((fn, f) => f.map(fn));
+
+map(Math.sqrt)(Identity.of(25)); // Identity 5
+
+compose(
+  map(Math.sqrt),         // Array [6]
+  map(prop('quantity')),  // Array [9]
+)(Array.of({ quantity: 9 }));
 ```
 
 ---
@@ -85,7 +104,7 @@ class Maybe {
 ```
 
 [.column]
-Usage
+Sample
 
 ```javascript
 const getName = man => man.name;
@@ -104,6 +123,41 @@ Maybe
 ```
 
 [.footer: The power of "Maybe": we can keep map functions to it without care whether the value is nullish.]
+
+---
+
+# Lift Maybe
+
+```javascript
+const maybe = curry((v, f, m) => {
+  if (m.isNothing) {
+    return v;
+  }
+
+  return f(m.$value);
+});
+
+```
+
+---
+
+# Usage
+
+```javascript
+const getName = ppl => ppl.name;
+
+const greeting = name => (`Hello ${name}`);
+
+const maybeSayHi = compose(maybe('You are not a human.', greeting), map(getName), Maybe.of);
+
+maybeSayHi({ name: 'John' })  // 'Hello John'
+maybeSayHi({ nam: 'Jane' })   // 'You are not a human'
+maybeSayHi(null)              // 'You are not a human'
+```
+
+---
+
+The Maybe functor provide us an elegant way to handle the nullish situations.
 
 ---
 
@@ -165,6 +219,10 @@ class Right extends Either {
 
 ---
 
+# Sample
+
+---
+
 # Lift Either
 
 ```javascript
@@ -180,13 +238,18 @@ const either = curry((f, g, e) => {
     case Right:
       result = g(e.$value);
       break;
-
-    // No Default
   }
 
   return result;
 });
 
+```
+
+---
+
+# Usage
+
+```javascript
 // zoltar :: User -> _
 const zoltar = compose(console.log, either(id, fortune), getAge(moment()));
 

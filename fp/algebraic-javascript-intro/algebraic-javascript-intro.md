@@ -86,7 +86,7 @@ Just 1
 ![inline](./functor.png)
 
 * “Functors” are the containers that can be used with “map” function. - _Mostly Adequate Guide_
-* Functor is any data type that defines how “fmap” applies to it. - _Haskell_
+* Functor is any data type that defines how “map” applies to it. - _Haskell_
 * A Functor is a "Container" which can apply functions to its value obey some law.
 
 ---
@@ -100,6 +100,9 @@ Just 1
 ---
 
 # Monad
+
+* you apply a function that returns a wrapped value, to a wrapped value using >>=
+* Monad is any data type that defines how “fmap” applies to it. - _Haskell_
 
 ---
 
