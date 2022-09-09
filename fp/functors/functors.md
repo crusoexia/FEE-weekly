@@ -1,87 +1,78 @@
-theme: Huerta, 6
+theme: Plex, 1
 
 # Functors
 
 ---
 
-# 1. Identity
+# Functor typeclass
 
-[.column]
-In Mathematic
+__Haskell__:
+> Functor is used to present the thing that can be mapped. 
+> Any type that has the __Container Property__ can be regarded as Functtor 
 
-An equation that is true no matter what values are chosen.
+Functor in Haskell:
 
-```
-a * 1 = a
-a + 0 = a
-a / 2 = a * 0.5
-```
-
-[.column]
-JavaScript
-
-```javascript
-// light fp
-const identity = a => a;
-identity(1); // 1
-
-// Functor
-class Identity {
-  static of(x) {
-    return new Identity(x);
-  }
-
-  constructor(x) {
-    this.$value = x;
-  }
-
-  map(f) {
-    return Identity.of(f(this.$value));
-  }
-}
-
-Identity
-  .of(3)
-  .map(x => x * 2) // Identity 6
+```haskell
+class Functor f where
+  fmap :: (a -> b) -> f a -> f b
 ```
 
 ---
 
-# 2. Array
+# Array - List Functor
 
-Array is an Functor by our definition.
+Array(List) is a Functor due to obey the __Functor laws__ and the implementation of __fmap__.
 
 ```javascript
-Array.of(6) // Array [6]
-
 const add = curry((a, b) => (a + b));
 
-Array.of(6).map(add(10)).map(Math.sqrt) // Array [4]
+[ 1, 2, 3 ].map(add(10)) // [ 11, 12, 13 ]
 ```
 
 ---
 
-# Map For Functor
+# fmap of Functor
 
-Though we can keep map functions to a Functor by calling `Functor.map`, but sometimes it is not very handy, we want a more flexible way to compose the functions applied to the Functors.
+Functor defines one function `fmap`, it doesn't have default implementation, every concrete type of Functor should implement it.
+
+Through the abstruct `fmap`, we can provide whatever Functor to it, and the concreted `fmap` method will be called. This is __polymorphic__ of `fmap`.
 
 ```javascript
-const map = curry((fn, f) => f.map(fn));
+const fmap = curry((fn, f) => f.map(fn));
 
-map(Math.sqrt)(Identity.of(25)); // Identity 5
+const div = curry((a, b) => (a / b));
 
 compose(
-  map(Math.sqrt),         // Array [6]
-  map(prop('quantity')),  // Array [9]
-)(Array.of({ quantity: 9 }));
+  fmap(div(2)),    // [ 50.5, 51, 51.5 ]
+  fmap(add(100)),  // [ 101, 102, 103 ]
+)([ 1, 2, 3 ]);
 ```
 
 ---
 
-# 3. Maybe
+# Maybe
+
+> Maybe you are a robot.
+
+__Haskell__:
+
+```Haskell
+data Maybe a = Nothing | Just
+```
+
+```Haskell
+instance Functor Maybe where
+  fmap f (Just x) = Just (f x)
+  fmap f Nothing = Nothing
+```
+
+---
+
+# JavaScript Maybe
 
 [.column]
-Maybe you are a human...
+
+"Mostly Adequate guide" implementation:
 
 ```javascript
 class Maybe {
@@ -98,7 +89,7 @@ class Maybe {
   }
 
   map(fn) {
-    return this.isNothing ? this : Maybe.of(fn(this.$value));
+    return this.isNothing() ? this : Maybe.of(fn(this.$value));
   }
 }
 ```
@@ -158,6 +149,8 @@ maybeSayHi(null)              // 'You are not a human'
 ---
 
 The Maybe functor provide us an elegant way to handle the nullish situations.
+
+## Practice: [Cabinet Box](https://codepen.io/crusoexia/pen/MWGYeZM)
 
 ---
 
@@ -291,3 +284,4 @@ class IO {
 # References
 
 * Mostly Adequate Guide
+* [Sanctuary](https://sanctuary.js.org/)
