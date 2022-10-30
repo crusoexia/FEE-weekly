@@ -281,7 +281,74 @@ class IO {
 
 ---
 
+# Advanced Algebraic Data Types
+
+Dealing with complicate cases.
+
+---
+
+# Applicative
+
+The ability to apply __Functor(function)__ to __Functor datas__.
+
+```javascript
+const plus = S.curry2((a, b) => b + a);
+const multi = S.curry2((a, b) => b * a);
+const divide = S.curry2((a, b) => b / a);
+const append = S.curry2((suffix, str) => str + suffix);
+
+// Maybe Applicative
+S.ap(S.Just(append('!')))(S.Just('WoW'));
+S.ap(S.Just(append('!')))(S.Nothing);
+S.ap(S.Nothing)(S.Just('WoW'));
+
+// Either Applicative
+S.ap(S.Right(append('!')))(S.Right('WoW'));
+S.ap(S.Right(append('!')))(S.Left('ops'));
+S.ap(S.Left(append('!')))(S.Right('WoW'));
+
+// Array Applicative
+S.ap([ plus(1), multi(2), divide(3) ])([ 6 ]);
+```
+
+[live code](https://codepen.io/crusoexia/pen/xxzGNwM)
+
+---
+
+# Monad
+
+The ability to map Functor data to functions which accept normal data and returns a Functor.
+
+```javascript
+const double = (x) => S.Just(x * 2);
+
+S.pipe([
+  S.chain(double),
+  S.chain(double),
+])(S.Just(2))
+```
+
+[live code](https://codepen.io/crusoexia/pen/YzvyNZQ?editors=0012)
+
+---
+
+# A real life example
+
+---
+
+# Conclusion
+
+* Functional programming enbrace Purity, Immutability and composition.
+* Composition is a data transformation pipeline, we can easily add/remove function plugins to modify the pipeline.
+* High order function and generic type make it easy to extend existing functionality.
+* Curry and partial application allow us separate the time and space to apply arguments.
+* Functor provide the ability to wrap data with context. It allows us to build composition pipeline in more complicate cases.
+* There are plenty efficient consistent APIs like "map", "fold(reduce)" to manipulate Functors.
+
+---
+
 # References
 
+* Learn You a Haskell for Great Good
 * Mostly Adequate Guide
 * [Sanctuary](https://sanctuary.js.org/)
