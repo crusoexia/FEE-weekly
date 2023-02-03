@@ -13,6 +13,12 @@ theme: Franziska, 9
 
 * (when set to `auto`) It enables the user agent to skip an element's rendering work (including layout and painting) until it is needed — which makes the initial page load much faster.
 
+_Values_
+
+* `visible` - no effect
+* `hidden` - similar as `display: none`
+* `auto`
+
 ---
 
 # subgrid
@@ -101,5 +107,6 @@ Compact form to apply style to large selectors.
 ### [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/::part) [caniuse](https://caniuse.com/?search=%3A%3Apart)
 
 * Allow user to customize the certain part of the shadow tree from outside.
+* Should cooperate with the `part` HTML attribute.
 * It will pierce the shadow.
 * [Example](https://codepen.io/crusoexia/pen/JjBKzNK)
