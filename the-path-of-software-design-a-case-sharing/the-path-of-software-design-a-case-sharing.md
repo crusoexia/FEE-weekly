@@ -2,7 +2,7 @@ autoscale: true
 build-lists: true
 theme: Merriweather, 8
 
-# A Case Share - EmailEditor: The Evolution Of Design
+# The Path Of Software Desgin: A Case Sharing
 ## From Requirement To Delivery
 
 ---
@@ -11,18 +11,17 @@ theme: Merriweather, 8
 
 ---
 
-# Analyze the requirement - System design
+# Analyze the requirement - Clarify the goals
 
+1. Clarify *What problem should the system solve?*
 1. Clarify *Who is the User?*
 2. Clarify *How would the User use the System?*
-3. Clarify *What components does the System be made up?*
-4. Clarify *How do the components interact with each other?*
-5. Declare *Design criterias/outlines*
-6. Pickup tech stack
+3. Non-functional requirements?
+5. Pickup tech stack
 
 ---
 
-# Design Mind Map
+# Draft Mind Map
 
 ![inline](./images/mind-map.png)
 
@@ -30,16 +29,9 @@ theme: Merriweather, 8
 
 # Abstraction design
 
-1. Split the Visual into small individual, self-contained parts.
-2. Design API from user's perspective.
-3. Analyze each *required* information in the API.
-4. Draw some diagram to present the system.
-
----
-
-# Draft API design
-
-![inline](./images/paper-api.jpeg)
+1. Draw System behaviors; inputs; outputs.
+2. Split the Big picture into small individual, self-contained parts.
+3. Draw diagrams to present the system.
 
 ---
 
@@ -51,15 +43,20 @@ theme: Merriweather, 8
 
 # Detail Design
 
+1. Design API from user's perspective.
+2. Analyze the *necessary* information of each API(ISP).
+
 ---
 
-# Complete the detail design in Agile
+# Evolve the details in short interation circles
+
+To avoid over-engineering.
 
 ![inline](./images/method-for-detail-design.jpg)
 
 ---
 
-# A Case share - create tool
+# A case sharing - Create Tool
 
 ---
 
@@ -95,35 +92,39 @@ theme: Merriweather, 8
 
 # Turn over - a problem that unexpected
 
+One of the user want to add customized section in the Text-tool.
+
 ---
 
-# Turn over - initial naive thought
+# Turn over - initial thought of the new problem
 
 ![inline](./images/turn-over--initial-thought.jpg)
 
+But what if another user want to add the customized section on the top of the form?
+
 ---
 
-# lose-hair.jpg
+# Losing-Hair.jpg
 
 ![inline](./images/orz.jpeg)
 
 ---
 
-# Turn over - After recall from the design criterias
+# Turn over - After recall the critical *Design targets*
 
 * Highly Configurable
 * Highly Extendable
 
 ---
 
-# New found requirement driven out new design decision
+# New requirements driven out new design decision
 
 * Give user ability to create new tools and override existing tools.
 * User can use other UI framework to build tools.
 
 ---
 
-# Rethink about the domain design base on the new decision
+# Rethinking about the domain base on the new decision
 
 Found that the **Tool** is still an important concept in our system, and thinking in this way further, found:
 
