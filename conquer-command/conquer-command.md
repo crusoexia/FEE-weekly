@@ -12,7 +12,9 @@ Theory, Practice & Tools
 
 ---
 
-# Theory - The Fun Of Hack
+# Theory - Humor, Play and Hack
+
+![screenshot of milking]()
 
 ===
 
