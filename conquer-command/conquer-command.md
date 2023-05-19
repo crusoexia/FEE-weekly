@@ -5,7 +5,6 @@ theme: solarized
 highlightTheme: github
 ---
 
-
 # Conquer Command-Line
 
 Theory, Practice & Tools
@@ -21,6 +20,8 @@ Theory, Practice & Tools
 ## Elephant In The Room
 
 It is third decade in the 21th Century, Why do people still invent languages and tools with CLI interface?
+
+(GUI is good, but it is mainly for end users, has limitation for technique tasks.)
 
 ===
 
