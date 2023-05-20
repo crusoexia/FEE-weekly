@@ -11,7 +11,7 @@ Theory, Practice & Tools
 
 ---
 
-# Theory - Humor, Play and Hack
+# Humor, Play and Hack
 
 ![screenshot of milking]()
 
@@ -42,13 +42,13 @@ cp ~/Downloads/*snapshot.* ./
 
 ===
 
-How clean and elegant it is!
+Clean & Elegant!
 
 ===
 
 But it is not the whole story.
 
-TODO: An example to demonstrate the charactoristic of cli.
+TODO: An example to demonstrate the charactoristic of cli(composition).
 
 ===
 
@@ -66,11 +66,49 @@ Automation: The Must-Have ability for development tools and Pipeline.
 
 ===
 
+## Unlimited possibility
+
 Boost the hundreds of thousands CLI applications with ChatGPT without a single-line code change. - The true power of the CLI.
+
+===
+
+## Overral, the CLI has a long history since 1960s. It is the UI created by the developers for developers.
 
 ---
 
-# Theory - Unix File System Brief Introduction
+# Theory - Unix File System
+
+---
+
+# Practice - File System operation
+
+---
+
+# Practice - Unix user group
+
+---
+
+# Practice - Networking
+
+---
+
+# Tools - Filter Utilities
+
+---
+
+# Tools - Shell
+
+---
+
+# Tools - Terminal
+
+---
+
+# Tools - Text Editor
+
+---
+
+# Tools - Git
 
 ---
 
@@ -78,3 +116,12 @@ Boost the hundreds of thousands CLI applications with ChatGPT without a single-l
 
 * Example - batch copy files
 * pipeline, softwares composition
+
+---
+
+# Thanks!
+
+---
+
+# References
+* [Linux File System]()
