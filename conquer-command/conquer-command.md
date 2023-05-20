@@ -42,7 +42,9 @@ cp ~/Downloads/*snapshot.* ./
 
 ===
 
-Clean & Elegant!
+How clean and elegant!
+
+And the most important: SIMPLE!(and repeatable)
 
 ===
 
@@ -77,6 +79,52 @@ Boost the hundreds of thousands CLI applications with ChatGPT without a single-l
 ---
 
 # Theory - Unix File System
+
+First thing first.
+
+Note: Where to find the stuffs and where to place the stuffs(so that can find them later).
+
+===
+
+## Everything is a file(descriptor)
+
+So that the same set of tools, utilities and APIs can be used on them.
+
+===
+
+Documents, hard-drives, keyboard, screen, printers, network streams etc. are all files.
+
+Observe the output of `ls`, `ls | cat` and `ls > list.txt`
+
+===
+
+> In facts, _pipe_ (|) acts as a temporary file which hold the output of one command and exists until next command read it.
+
+===
+
+File system hierarchy
+
+| Directory     | Description                                                               | Shareable |
+|---------------|---------------------------------------------------------------------------|-----------|
+| /             | Root of the filesystem tree                                               |           |
+| /bin          | Essential user command binaries.                                          | Y         |
+| /boot         | Static files of the boot loader                                           |           |
+| /dev          | Device files                                                              |           |
+| /etc          | Host-specific system configuration                                        |           |
+| /etc/opt      | Configuration files for /opt                                              |           |
+| /home         | User home directories                                                     |           |
+| /home/\<user> | Login user home directory                                                 |           |
+| /lib          | Essential shared libraries and kernel modules                             |           |
+| /mnt          | Mount point for a temporarily mounted filesystem                          |           |
+| /opt          | Add-on application software packages                                      | Y         |
+| /root         | Home directory for the root user(system admin)                            |           |
+| /usr          | Executables, libraries, and shared resources that are not system critical | Y         |
+| /usr/bin      | The /bin is a symbolic link of /usr/bin                                   | Y         |
+| /tmp          | Temporary files                                                           |           |
+| /var          | Files that may change often – especially in size                          |           |
+<!-- .element: style="font-size:20px" -->
+
+Note: All data in Unix is organized into files. All files are organized into directories. These directories are organized into a tree-like structure called the file system.
 
 ---
 
@@ -124,4 +172,4 @@ Boost the hundreds of thousands CLI applications with ChatGPT without a single-l
 ---
 
 # References
-* [Linux File System]()
+* [Filesystem Hierarchy Standard](https://www.pathname.com/fhs/)
