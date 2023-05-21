@@ -5,27 +5,32 @@ theme: solarized
 highlightTheme: github
 ---
 
-<!-- .slide: data-background="./hacker.png" -->
+<!-- .slide: data-background="./images/the-matrix.png" -->
 
 # Conquer Command-Line
 <!-- .element: style="color: #fff" -->
 
-Theory, Practice & Tools
+Theory, Tools & Practice
 <!-- .element: style="color: #fff" -->
 
 ---
 
 # Humor, Play and Hack
 
-![screenshot of milking]()
+![cowsay](./images/cowsay.png)
+<!-- .element: style="height:160px;" -->
 
 ===
 
 ## Elephant In The Room
 
-It is third decade in the 21th Century, Why do people still invent languages and tools with CLI interface?
+It is third decade in the 21th Century, besides the obvious reasons like the servers don't have GUI, 
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
-(GUI is good, but it is mainly for end users, has limitation for technique tasks.)
+_Why do people still invent languages and tools with CLI interface?_
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+Notes: GUI is good, but it is mainly for end users, has limitation for technique tasks.
 
 ===
 
@@ -37,6 +42,9 @@ Copy file(s) with Graphic UI:
 
 ![screenshot of copy file with Graphic UI]()
 
+Tedious! &#x1F44E;
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
 ===
 
 Copy file(s) with CLI:
@@ -45,66 +53,109 @@ Copy file(s) with CLI:
 j workspace
 cp ~/Downloads/*snapshot.* ./
 ```
-
-===
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
 Clean and elegant!
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
 The most important: SIMPLE!(and repeatable)
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
 ===
 
-But it is not the whole story.
+But not only...
 
-TODO: An example to demonstrate the charactoristic of cli(composition).
+===
+
+## Example: Application cooperation
+
+===
+
+Imagine you want to do below task: 
+
+Use a tool that generate a random humorous sentence and wrapped the sentence in the bubble of a cow to make it more humorous and copy it in clipboard so that you can paste it to your Wechat moments.
+
+===
+
+With GUI applications:
+
+**Repeatly** _Double click to open app -> click to function -> copy / paste result_
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+Tedious! &#x1F44E;
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+===
+
+With CLI:
+
+```sh
+fortune | cowsay | xclip -sel clip
+```
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+&#x1F389;Voila!&#x1F389;
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
 ===
 
 ## Unlimited possibility - Magics from the future
 
-The CLI applications would not only coorperate with each others, but they are also boost by the application which even not been created, without a single-line code change.
+===
 
-Don't believe it? Check the [shell_gpt](https://github.com/TheR1D/shell_gpt)
+The CLI applications would not only cooperate with each others, but they are also boost by the application which even not been created.
+
+__Without a single-line change__.
 
 ===
 
-Automation: The Must-Have ability for development tools and Pipeline.
+Don't believe it? Check the [shell_gpt](https://github.com/TheR1D/shell_gpt).
+
+Now you have 10s of thousands of applications which have the world's best AI capability, __for free__.
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+===
+
+From here you could get the idea of the magician's secret: The power of the CLI.
 
 ===
 
 ## The deep reason that make CLI special and vibrant
 
-1. Unified and simple input & output. <!-- .element: class="fragment" data-fragment-index="1" -->
-2. Concentrate and self-contained individual application. <!-- .element: class="fragment" data-fragment-index="2" -->
-3. Each module just "filter" the input. <!-- .element: class="fragment" data-fragment-index="3" -->
-4. Applications can easily coorperate with each other by composition. <!-- .element: class="fragment" data-fragment-index="4" -->
+1. Unified and simple input/output across the system. <!-- .element: class="fragment" data-fragment-index="1" -->
+2. Each application focus on a small area. <!-- .element: class="fragment" data-fragment-index="2" -->
+3. Most of the applications just "filter" the input. <!-- .element: class="fragment" data-fragment-index="3" -->
+4. Application cooperation is encouraged and simply by "composition". <!-- .element: class="fragment" data-fragment-index="4" -->
 -- The design principle of Unix <!-- .element: class="fragment" data-fragment-index="5" -->
 
 ===
 
-&#x261D; Overral, the CLI is a UI created by the developers for developers, and other applications.
+&#x261D; Overral, the CLI is a UI created by the developers for developers, it opens a door for play and hacking.
 
 ---
 
 # Theory - Unix File System
 
-First thing first.
+The fear comes from unfamiliar.
 
 ===
 
 ## Everything is a file(descriptor)
 
-So that the same set of tools, utilities and APIs can be used on them.
-
 ===
 
-Documents, hard-drives, keyboard, screen, printers, network streams etc. are all files(with different types).
+Documents, hard-drives, keyboard, screen, clipboards, printers, network streams... anything you can imagine, are files(with different types).
+
+__So that the same set of tools, utilities and APIs can be used on them.__
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
 ===
 
 For example
 
 Observe the output of `ls`, `ls | cat` and `ls > list.txt && cat list.txt`
+
+TODO: how would `cat` distinct the input from cli and from the pipe?
 
 ===
 
@@ -114,7 +165,7 @@ Observe the output of `ls`, `ls | cat` and `ls > list.txt && cat list.txt`
 
 ## Unix(like) file system hierarchy
 
-Where to find the stuffs and where to place the stuffs.
+Where to find the stuffs and where should you place them.
 
 ===
 
@@ -148,6 +199,45 @@ Note: All data in Unix is organized into files. All files are organized into dir
 
 # Theory - Unix privilege and User group
 
+`sudo rm -rf /` &#x1F389;&#x1F389;&#x1F389;
+
+===
+
+## Caution!
+
+Don't run above command in your terminal, otherwise the author of this slides don't responsible for any lost of doing so!
+
+---
+
+# Tools - Boost CLI experience
+
+工欲善其事，必先利其器
+
+===
+
+## Terminal
+
+The ability to summon the terminal at any time.
+
+===
+
+## tmux
+
+===
+
+## oh-my-zsh
+
+===
+
+One downside of the CLI is you have to remember the commands and their options(usability). 
+
+__Auto-completion__ can dramatically resolve this problem.
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+===
+
+## auto-jump
+
 ---
 
 # Practice - File System operation
@@ -166,15 +256,19 @@ Note: All data in Unix is organized into files. All files are organized into dir
 
 ---
 
+# Tools - String manipulating
+
+---
+
 # Tools - Shell
 
 ---
 
-# Tools - Terminal
-
----
-
 # Tools - Text Editor
+
+The Holy War 
+
+(between emacs and vim)
 
 ---
 
