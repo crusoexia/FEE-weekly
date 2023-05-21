@@ -2,7 +2,6 @@
 title: Conquer CLI
 verticalSeparator: ^===$
 theme: solarized
-highlightTheme: github
 ---
 
 <!-- .slide: data-background="./images/the-matrix.png" -->
@@ -206,6 +205,15 @@ Note: All data in Unix is organized into files. All files are organized into dir
 ## Caution!
 
 Don't run above command in your terminal, otherwise the author of this slides don't responsible for any lost of doing so!
+
+===
+
+Refs
+* [Redhat Users and Groups](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/4/html/reference_guide/ch-users-groups)
+* [https://csguide.cs.princeton.edu/account/groups](https://csguide.cs.princeton.edu/account/groups)
+* [https://www.redhat.com/sysadmin/manage-permissions](https://www.redhat.com/sysadmin/manage-permissions)
+* [https://steflan-security.com/linux-privilege-escalation-exploiting-user-groups/](https://steflan-security.com/linux-privilege-escalation-exploiting-user-groups/)
+* [https://reboare.gitbooks.io/booj-security/content/general-linux/privilege-escalation.html](https://reboare.gitbooks.io/booj-security/content/general-linux/privilege-escalation.html)
 
 ---
 
