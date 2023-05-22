@@ -225,11 +225,30 @@ Refs
 
 ## Terminal
 
-The ability to summon the terminal at any time.
+The magician's servant.
+
+The ability to summon your servant at any time.
 
 ===
 
 ## tmux
+Terminal multiplexer
+
+===
+
+* Session management
+  - Create Session
+  - Attach Session
+  - Switch Session
+* Window management
+  - Create Window
+  - Window navigation
+  - Search/Switch Window
+  - Swap window
+* Pane management
+  - Create Pane
+  - Pane navigation
+  - Pane position
 
 ===
 
