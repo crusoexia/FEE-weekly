@@ -192,7 +192,19 @@ Note: All data in Unix is organized into files. All files are organized into dir
 
 ===
 
-/home/\<user> hierarchy
+/home/\<user>/ hierarchy
+
+| Directory                | Description                                                                          |
+|--------------------------|--------------------------------------------------------------------------------------|
+| /home/\<user>/Documents/ | Your personal documents                                                              |
+| /home/\<user>/Desktop/   | The files you place on your GUI desktop are all locate at there                      |
+| /home/\<user>/Download/  | Files downloaded by user applications for example the browser.                       |
+| /home/\<user>/Picture/   | Used by the photo applications and screen captures                                   |
+| /home/\<user>/bin/       | Your private executables                                                             |
+| /home/\<user>/.config/   | Configurations of applications                                                       |
+| /home/\<user>/.local/    | Files installed by user applications other than the OS distribution package managers |
+| /home/\<user>/.ssh/      | ssh keys                                                                             |
+<!-- .element: style="font-size:20px" -->
 
 ---
 
@@ -205,6 +217,10 @@ Note: All data in Unix is organized into files. All files are organized into dir
 ## Caution!
 
 Don't run above command in your terminal, otherwise the author of this slides don't responsible for any lost of doing so!
+
+===
+
+## File Permission
 
 ===
 
