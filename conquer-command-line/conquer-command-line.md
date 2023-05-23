@@ -21,68 +21,99 @@ Theory, Tools & Practice
 
 ===
 
-## Elephant In The Room
+## So, why do you want to use it?
 
-It is third decade in the 21th Century, besides the obvious reasons like the servers don't have GUI, 
-<!-- .element: class="fragment" data-fragment-index="1" -->
+It is third decade in the 21th Century,
 
-_Why do people still invent languages and tools with CLI interface?_
-<!-- .element: class="fragment" data-fragment-index="1" -->
+_why do people still invent apps and tools with CLI interface?_
 
 Notes: GUI is good, but it is mainly for end users, has limitation for technique tasks.
 
 ===
 
-## Example: File operation.
+## Example: Move file(s).
 
 ===
 
-Copy file(s) with Graphic UI:
+Move file(s) with GUI:
 
-![screenshot of copy file with Graphic UI]()
+1. Open "finder"(or anything else) 
+<!-- .element: style="font-size:28px;margin:5px" class="fragment" data-fragment="1" -->
+2. Click after clicks to get the place where the files locate 
+<!-- .element: style="font-size:28px;margin:5px" class="fragment" data-fragment="2" -->
+3. Select the file 
+<!-- .element: style="font-size:28px;margin:5px" class="fragment" data-fragment="3" -->
+4. Hold the ctrl + select another file 
+<!-- .element: style="font-size:28px;margin:5px" class="fragment" data-fragment="4" -->
+5. Repeat this until all the files you want to move are selected
+<!-- .element: style="font-size:28px;margin:5px" class="fragment" data-fragment="5" -->
+6. Right click the mouse 
+<!-- .element: style="font-size:28px;margin:5px" class="fragment" data-fragment="6" -->
+7. Select "cut" 
+<!-- .element: style="font-size:28px;margin:5px" class="fragment" data-fragment="7" -->
+8. Open another "finder" 
+<!-- .element: style="font-size:28px;margin:5px" class="fragment" data-fragment="8" -->
+9. Click after clicks to the target place 
+<!-- .element: style="font-size:28px;margin:5px" class="fragment" data-fragment="9" -->
+10. Right click mouse 
+<!-- .element: style="font-size:28px;margin:5px" class="fragment" data-fragment="10" -->
+11. Select the "paste"
+<!-- .element: style="font-size:28px;margin:5px" class="fragment" data-fragment="11" -->
+
+===
 
 Tedious! &#x1F44E;
+
+Not to mention the "finder" is really __SUCKS__.
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
 ===
 
-Copy file(s) with CLI:
+Move file(s) with CLI:
 
-```sh [2]
-j workspace
-cp ~/Downloads/*snapshot.* ./
+```sh
+mv ~/Downloads/*snapshot.* ~/workspace/my-project/images/
 ```
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
-Clean and elegant!
+Clean & Elegant!
 <!-- .element: class="fragment" data-fragment-index="2" -->
 
-The most important: SIMPLE!(and repeatable)
-<!-- .element: class="fragment" data-fragment-index="2" -->
+More important, it is repeatable.
+<!-- .element: class="fragment" data-fragment-index="3" -->
 
 ===
 
-But not only...
+__Command it__, be machine's master, not slave.
+
+But it is not just that...
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
 ===
 
-## Example: Application cooperation
+## Application cooperation
+Leverage Effect
 
 ===
 
 Imagine you want to do below task: 
 
-Use a tool that generate a random humorous sentence and wrapped the sentence in the bubble of a cow to make it more humorous and copy it in clipboard so that you can paste it to your Wechat moments.
+1. Use a tool that generate a random humorous sentence. <!-- .element: class="fragment" data-fragment="1" -->
+2. Wrapped the sentence in the bubble of a cow to make it more humorous. <!-- .element: class="fragment" data-fragment="2" -->
+3. Copy it in clipboard so that you can paste it to your Wechat moments. <!-- .element: class="fragment" data-fragment="3" -->
 
 ===
 
-With GUI applications:
+With GUI applications
 
-**Repeatly** _Double click to open app -> click to function -> copy / paste result_
+Suppose you have one app that generate humors, and one app to render a "cow" to wrap a sentence:
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
-Tedious! &#x1F44E;
+**Repeatly** _Double click to open app -> click to function -> copy / paste result_
 <!-- .element: class="fragment" data-fragment-index="2" -->
+
+Tedious! &#x1F44E;
+<!-- .element: class="fragment" data-fragment-index="3" -->
 
 ===
 
