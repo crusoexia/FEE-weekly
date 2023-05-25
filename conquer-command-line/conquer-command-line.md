@@ -9,7 +9,7 @@ theme: solarized
 # Conquer Command-Line
 <!-- .element: style="color: #fff" -->
 
-Theory, Tools & Practice
+Theory, Tools & Practice - be a unix hacker
 <!-- .element: style="color: #fff" -->
 
 ---
@@ -139,14 +139,20 @@ __Without a single-line change__.
 
 ===
 
-Don't believe it? Check the [shell_gpt](https://github.com/TheR1D/shell_gpt).
+Don't believe it? Check the [shell_gpt](https://github.com/TheR1D/shell_gpt)!
 
-Now you have 10s of thousands of applications which have the world's best AI capability, __for free__.
+Now you have 10s of thousands of applications which have the world's best AI capability, __for free__!
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
 ===
 
-From here you could get the idea of the magician's secret: The power of the CLI.
+## Other capabilities
+* Scripting
+* Automation
+
+===
+
+From here you could get idea of the power of the CLI.
 
 ===
 
@@ -264,7 +270,7 @@ Refs
 
 ---
 
-# Tools - Boost CLI experience
+# Boost CLI experience - Tools 
 
 工欲善其事，必先利其器
 
@@ -314,6 +320,18 @@ __Auto-completion__ can dramatically resolve this problem.
 
 ---
 
+# Boost CLI Experience - Configuration
+
+===
+
+## User configuration files
+
+* .profile
+* .*shrc
+* .config/
+
+---
+
 # Practice - File System operation
 
 ---
@@ -326,31 +344,31 @@ __Auto-completion__ can dramatically resolve this problem.
 
 ---
 
-# Tools - Filter Utilities
+# Practice - Filters
 
 ---
 
-# Tools - String manipulating
+# Practice - String
 
 ---
 
-# Tools - Shell
+# Practice - Scripting
 
 ---
 
-# Tools - Text Editor
+# Practice - Text Editor
 
 The Holy War 
 
-(between emacs and vim)
+Note: (between emacs and vim)
 
 ---
 
-# Tools - Git
+# Practice - System management
 
 ---
 
-# Thanks!
+# Practice - Git
 
 ---
 
