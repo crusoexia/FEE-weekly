@@ -257,16 +257,89 @@ Don't run above command in your terminal, otherwise the author of this slides do
 
 ===
 
-## File Permission
+Unix is a multi-user multi-tasking OS, it has been born with consideration of dividing user's resource and privileges.
 
 ===
 
-Refs
-* [Redhat Users and Groups](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/4/html/reference_guide/ch-users-groups)
-* [https://csguide.cs.princeton.edu/account/groups](https://csguide.cs.princeton.edu/account/groups)
-* [https://www.redhat.com/sysadmin/manage-permissions](https://www.redhat.com/sysadmin/manage-permissions)
-* [https://steflan-security.com/linux-privilege-escalation-exploiting-user-groups/](https://steflan-security.com/linux-privilege-escalation-exploiting-user-groups/)
-* [https://reboare.gitbooks.io/booj-security/content/general-linux/privilege-escalation.html](https://reboare.gitbooks.io/booj-security/content/general-linux/privilege-escalation.html)
+## Definition
+
+* __User__ - Accounts tied either to people, or specific applications.
+* __Group__ - Users within a group can read, write, or execute files owned by that group.
+
+&#x261D; A user can be assigned to multiple groups.
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+===
+
+Standard Users
+
+| User   | UID | GID | Home Directory | Shell         |
+|--------|-----|-----|----------------|---------------|
+| root   | 0   | 0   | /root          | /bin/bash     |
+| bin    | 1   | 1   | /bin           | /sbin/nologin |
+| daemon | 2   | 2   | /sbin          | /sbin/nologin |
+| adm    | 3   | 4   | /var/adm       | /sbin/nologin |
+<!-- .element: style="font-size:.6em" -->
+
+See the full list [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/4/html/reference_guide/s1-users-groups-standard-users).
+<!-- .element: style="font-size:.6em" -->
+
+===
+
+Standard Groups
+
+| Group  | GID | Members           |
+|--------|-----|-------------------|
+| root   | 0   | root              |
+| bin    | 1   | root, bin, daemon |
+| daemon | 2   | root, bin, daemon |
+| sys    | 3   | root, bin, adm    |
+| adm    | 4   | root, adm, daemon |
+<!-- .element: style="font-size:.6em" -->
+
+See the full list [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/4/html/reference_guide/s1-users-groups-standard-groups).
+<!-- .element: style="font-size:.6em" -->
+
+===
+
+&#x261D; The "Minimal Privilege Principle" is applied to assign restricted actions to different `standard` user and groups.
+
+===
+
+```sh
+$ id -Gn
+cxia adm dialout cdrom floppy sudo audio dip video plugdev netdev docker
+```
+
+===
+
+TODO: user group management tools
+
+===
+
+## File Permission
+
+* Each file has 3 level of permission `read`, `write`, and `execute` separately for the `owner`, the `group`, and `others`.
+* The file owner can be changed only by the root user.
+* File access permissions can be changed by both the root user and the owner of the file.
+
+===
+
+&#x261D; The user who creates a file is the owner that file. The creator's primary group is the group owner of the file.
+
+&#x261D; There are more advanced permission controls like `special permission` and `ACL`(Access control list), which are rarely needed for personal computor.
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+===
+
+```sh
+$ ls -l .local/bin/fd | clip.exe
+lrwxrwxrwx 1 cxia cxia 15 Dec  3 21:52 .local/bin/fd -> /usr/bin/fdfind
+```
+
+===
+
+TODO: Who runs the process?
 
 ---
 
@@ -334,6 +407,21 @@ __Auto-completion__ can dramatically resolve this problem.
 
 # Practice - File System operation
 
+===
+
+## Symbolic link
+
+===
+
+* create directory
+* create file
+* change user and group
+* change permission
+  - absolute mode
+  - symbolic mode
+
+see: https://www.redhat.com/sysadmin/manage-permissions
+
 ---
 
 # Practice - Browse history
@@ -362,6 +450,12 @@ The Holy War
 
 Note: (between emacs and vim)
 
+===
+
+## Introduction
+
+See <the art of unix programming> p.328 - the "roguelike" pattern
+
 ---
 
 # Practice - System management
@@ -374,3 +468,4 @@ Note: (between emacs and vim)
 
 # References
 * [Filesystem Hierarchy Standard](https://www.pathname.com/fhs/)
+* [Redhat Users and Groups](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/4/html/reference_guide/ch-users-groups)
