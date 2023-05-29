@@ -21,7 +21,7 @@ Theory, Tools & Practice - be a unix hacker
 
 ===
 
-## So, why do you want to use it?
+## So, why do you want to use CLI?
 
 It is third decade in the 21th Century,
 
@@ -189,9 +189,9 @@ __So that the same set of tools, utilities and APIs can be used on them.__
 
 For example
 
-Observe the output of `ls`, `ls | cat` and `ls > list.txt && cat list.txt`
+Observe the result of `ls > list.txt && cat list.txt` and `ls | cat`
 
-TODO: how would `cat` distinct the input from cli and from the pipe?
+Note: read.mjs
 
 ===
 
