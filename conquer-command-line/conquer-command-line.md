@@ -340,6 +340,9 @@ lrwxrwxrwx 1 cxia cxia 15 Dec  3 21:52 .local/bin/fd -> /usr/bin/fdfind
 ===
 
 TODO: Who runs the process?
+`ps -u`
+
+TODO: example to demonstrate a process to access non-permit file.
 
 ---
 
@@ -358,7 +361,11 @@ The ability to summon your servant at any time.
 ===
 
 ## tmux
-Terminal multiplexer
+The magic device to trigger your magic.
+
+===
+
+https://www.redhat.com/sysadmin/introduction-tmux-linux
 
 ===
 
@@ -371,10 +378,12 @@ Terminal multiplexer
   - Window navigation
   - Search/Switch Window
   - Swap window
+  - Move window to session
 * Pane management
   - Create Pane
   - Pane navigation
   - Pane position
+  - Move Pane to window
 
 ===
 
