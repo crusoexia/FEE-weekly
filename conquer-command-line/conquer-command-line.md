@@ -207,8 +207,8 @@ Where to find the stuffs and where should you place them.
 
 | Directory         | Description                                                               | Shareable |
 |-------------------|---------------------------------------------------------------------------|-----------|
-| /                 | Root of the filesystem tree                                               |           |
-| /bin              | Essential user command binaries.                                          | Y         |
+| **/**             | Root of the filesystem tree                                               |           |
+| **/bin**          | Essential command binaries(System management tools)                       | Y         |
 | /boot             | Static files of the boot loader                                           |           |
 | /dev              | Device files                                                              |           |
 | **/etc**          | Host-specific system configuration                                        |           |
@@ -220,9 +220,9 @@ Where to find the stuffs and where should you place them.
 | **/opt**          | Add-on application software packages                                      | Y         |
 | /root             | Home directory for the root user(system admin)                            |           |
 | **/usr**          | Executables, libraries, and shared resources that are not system critical | Y         |
-| /usr/bin          | The /bin is a symbolic link of /usr/bin                                   | Y         |
+| **/usr/bin**      | Shared command binaries                                                   | Y         |
 | **/tmp**          | Temporary files                                                           |           |
-| /var              | Files that may change often – especially in size                          |           |
+| **/var**          | Files that may change often – especially in size                          |           |
 <!-- .element: style="font-size:20px" -->
 
 Note: All data in Unix is organized into files. All files are organized into directories. These directories are organized into a tree-like structure called the file system.
@@ -240,7 +240,7 @@ Note: All data in Unix is organized into files. All files are organized into dir
 | /home/\<user>/bin/       | Your private executables                                                             |
 | /home/\<user>/.config/   | Configurations of applications                                                       |
 | /home/\<user>/.local/    | Files installed by user applications other than the OS distribution package managers |
-| /home/\<user>/.ssh/      | ssh keys                                                                             |
+| /home/\<user>/.ssh/      | ssh related files like private/public keys and known hosts                           |
 <!-- .element: style="font-size:20px" -->
 
 ---
@@ -266,12 +266,22 @@ Unix is a multi-user multi-tasking OS, it has been born with consideration of di
 * __User__ - Accounts tied either to people, or specific applications.
 * __Group__ - Users within a group can read, write, or execute files owned by that group.
 
-&#x261D; A user can be assigned to multiple groups.
+&#x261D; A user has an associate primary group(usually the same name as the user name).
 <!-- .element: class="fragment" data-fragment-index="1" -->
+
+&#x261D; A user can be assigned to multiple groups.
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
 ===
 
-Standard Users
+## User types
+
+* __Normal user__ - A mortal user which would login the system.
+* __System user__ - Users used by system applications or special purpose. Login is disabled.
+
+===
+
+Standard Users(System users)
 
 | User   | UID | GID | Home Directory | Shell         |
 |--------|-----|-----|----------------|---------------|
@@ -306,43 +316,61 @@ See the full list [here](https://access.redhat.com/documentation/en-us/red_hat_e
 
 ===
 
-```sh
-$ id -Gn
-cxia adm dialout cdrom floppy sudo audio dip video plugdev netdev docker
-```
+## The sovereign Sudoers!
+
+**sudo** stands for "Super User Do". So Sudoers are super users(root users), are usually the system owner or admin.
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+&#x261D; The sudoers' specification are stored in `/etc/sudoers`
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
 ===
 
-TODO: user group management tools
+## User and Group management tools
+
+Refer to [Redhat User and Group Management Tools](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/4/html/reference_guide/ch-users-groups)
+
+===
+
+## Practice: Check user groups
+
+`id [options] [user]`
+
+```sh
+$ id root
+```
+Output:
+
+uid=0(root) gid=0(wheel) groups=0(wheel),1(daemon),2(kmem),3(sys),4(tty),5(operator),8(procview),9(procmod),12(everyone),20(staff),29(certusers),61(localaccounts),80(admin),702(com.apple.sharepoint.group.2),701(com.apple.sharepoint.group.1),33(_appstore),98(_lpadmin),100(_lpoperator),204(_developer),250(_analyticsusers),395(com.apple.access_ftp),398(com.apple.access_screensharing),399(com.apple.access_ssh),400(com.apple.access_remote_ae),703(com.apple.sharepoint.group.3)
+<!-- .element: style="font-size: .5em;overflow-wrap:break-word;text-align:left" -->
 
 ===
 
 ## File Permission
 
-* Each file has 3 level of permission `read`, `write`, and `execute` separately for the `owner`, the `group`, and `others`.
-* The file owner can be changed only by the root user.
-* File access permissions can be changed by both the root user and the owner of the file.
+* Each file has 3 level of permission `read`, `write`, and `execute` separately for the `user owner`, the `group owner`, and `others`.
+* The file owner can be changed only by the root user. <!-- .element: class="fragment" data-fragment-index="1" -->
+* File access permissions can be changed by both the root user and the owner of the file. <!-- .element: class="fragment" data-fragment-index="2" -->
 
 ===
 
-&#x261D; The user who creates a file is the owner that file. The creator's primary group is the group owner of the file.
+![File permission demonstration](./images/file-permission.svg)
 
-&#x261D; There are more advanced permission controls like `special permission` and `ACL`(Access control list), which are rarely needed for personal computor.
+===
+
+&#x261D; Dy default the user who creates a file is the owner that file. The creator's primary group is the group owner of the file.
+
+&#x261D; There are more advanced permission controls like `special permission` and `ACL`(Access control list).
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
 ===
 
-```sh
-$ ls -l .local/bin/fd | clip.exe
-lrwxrwxrwx 1 cxia cxia 15 Dec  3 21:52 .local/bin/fd -> /usr/bin/fdfind
-```
+## The privilege of process
 
-===
+The process and its sub-processes have the same access right as the user who start the process.
 
-TODO: Who runs the process?
-`ps -u`
-
-TODO: example to demonstrate a process to access non-permit file.
+&#x261D; Don't abuse *sudo* to run applications! That means this application can do anything on your system(like `rm -rf /`), so does the sub-processes spawned by it.
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
 ---
 
@@ -412,6 +440,8 @@ __Auto-completion__ can dramatically resolve this problem.
 * .*shrc
 * .config/
 
+TODO: loginshell, subshell
+
 ---
 
 # Practice - File System operation
@@ -477,4 +507,5 @@ See <the art of unix programming> p.328 - the "roguelike" pattern
 
 # References
 * [Filesystem Hierarchy Standard](https://www.pathname.com/fhs/)
-* [Redhat Users and Groups](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/4/html/reference_guide/ch-users-groups)
+* [adduser manual](https://www.commandlinux.com/man-page/man8/addgroup.8.html)
+* [Sudoers](https://help.ubuntu.com/community/Sudoers)
