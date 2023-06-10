@@ -481,6 +481,16 @@ see: https://www.redhat.com/sysadmin/manage-permissions
 
 # Practice - Filters
 
+===
+
+fdfind
+fzf
+head
+less
+more
+tail
+grep
+
 ---
 
 # Practice - String
