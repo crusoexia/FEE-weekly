@@ -417,6 +417,14 @@ https://www.redhat.com/sysadmin/introduction-tmux-linux
 
 ## oh-my-zsh
 
+Capability enabled:
+* pretty
+* better autojump
+* better vi-mode
+* better auto-completion
+* better history management
+* and more
+
 ===
 
 One downside of the CLI is you have to remember the commands and their options(usability). 
