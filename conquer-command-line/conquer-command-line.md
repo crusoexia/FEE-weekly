@@ -445,6 +445,7 @@ __Auto-completion__ can dramatically resolve this problem.
 ## User configuration files
 
 * .profile
+  - alias cannot be defined in profile
 * .*shrc
 * .config/
 
