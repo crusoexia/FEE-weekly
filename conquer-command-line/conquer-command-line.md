@@ -405,9 +405,23 @@ Recommond terminals:
 ## tmux
 The magic amplifier.
 
+Get what you need right at your hand.
+
+Now you have your CLI, you still want diff workspaces for different things, and a way to quick and accuate switch between them.
+
 ===
 
 https://www.redhat.com/sysadmin/introduction-tmux-linux
+
+===
+
+Introduct concepts
+
+Session, Window, Pane
+
+===
+
+![tmux](./images/tmux.svg)
 
 ===
 
@@ -429,14 +443,20 @@ https://www.redhat.com/sysadmin/introduction-tmux-linux
 
 ===
 
+Tmuxinator
+
+Predefined tmux workspace
+
+===
+
 ## oh-my-zsh
 
 Capability enabled:
-* pretty
+* auto-completion
 * better autojump
 * better vi-mode
-* better auto-completion
 * better history management
+* pretty
 * and more
 
 ===
