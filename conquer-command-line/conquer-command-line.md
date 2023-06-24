@@ -384,12 +384,26 @@ The process and its sub-processes have the same access right as the user who sta
 
 The magician's servant.
 
-The ability to summon your servant at any time.
+===
+
+There are a lots of terminals with different looks and functions, but for myself there is a critical capability to consider: *The ability to summon your servant at any time*([Quake](https://en.wikipedia.org/wiki/Quake_(video_game)) like).
+
+===
+
+Compare with unreliablely keep pressing `tab` or `shift + tab`(and scan with your eye and brain), using `ctrl/cmd + ;` to summon and dismiss the terminal is PRETTY handy.
+
+===
+
+Recommond terminals:
+
+* Mac - *iterm2*
+* Windows - *Windows terminal*
+* Linux - *Guake*; *Gnome terminal*
 
 ===
 
 ## tmux
-The magic device to trigger your magic.
+The magic amplifier.
 
 ===
 
