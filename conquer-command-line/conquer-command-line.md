@@ -386,11 +386,11 @@ The magician's servant.
 
 ===
 
-There are a lots of terminals with different looks and functions, but for myself there is a critical capability to consider: *The ability to summon your servant at any time*([Quake](https://en.wikipedia.org/wiki/Quake_(video_game)) like).
+There are a lots of terminals with different looks and functions, but there is a critical capability to consider: *Standby for your call with an identified command*([Quake](https://en.wikipedia.org/wiki/Quake_(video_game)) like).
 
 ===
 
-Compare with unreliablely keep pressing `tab` or `shift + tab`(and scan with your eye and brain), using `ctrl/cmd + ;` to summon and dismiss the terminal is PRETTY handy.
+Compare with searching in a messed list with `tab` and eyes(and brain), using `ctrl/cmd + ;` to summon and dismiss the terminal is JUST elegant!
 
 ===
 
