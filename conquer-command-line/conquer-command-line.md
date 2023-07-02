@@ -382,11 +382,12 @@ The process and its sub-processes have the same access right as the user who sta
 
 ## Terminal
 
-The magician's servant.
-
 ===
 
-There are a lots of terminals with different looks and functions, but there is a critical capability to consider: *Standby for your call with an identified command*([Quake](https://en.wikipedia.org/wiki/Quake_(video_game)) like).
+Terminals are many, but there is a critical capability to filter them: *Standby for your call with an identified command*.
+
+![quake console](./images/quake-console.png)
+<!-- .element: class="fragment" style="height: 400px" data-fragment-index="1" -->
 
 ===
 
