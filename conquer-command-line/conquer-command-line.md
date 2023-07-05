@@ -563,6 +563,7 @@ less
 more
 tail
 grep
+repgrep
 
 ---
 
