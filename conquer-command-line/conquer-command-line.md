@@ -473,7 +473,46 @@ __Auto-completion__ can dramatically resolve this problem.
 
 ---
 
-# Boost CLI Experience - Configuration
+# Enchant CLI 
+## Configuration
+
+===
+
+# Login shell
+
+TODO: what is loginshell?
+
+ANSWER: https://linuxhandbook.com/login-shell/
+
+===
+
+# Practice
+## Check your login shell
+
+check /etc/passwd
+
+Check current running shell
+1. env var
+2. `echo $0`
+
+===
+
+# Config files for login-shell
+
+===
+
+TODO: the graphic to display the apply order of login-shell config files
+
+> alias cannot be set in .*profile
+>
+> TODO: why?
+
+===
+
+# Practice
+## switch user
+
+su
 
 ===
 
@@ -483,8 +522,6 @@ __Auto-completion__ can dramatically resolve this problem.
   - alias cannot be defined in profile
 * .*shrc
 * .config/
-
-TODO: loginshell, subshell
 
 ---
 
@@ -563,3 +600,4 @@ See <the art of unix programming> p.328 - the "roguelike" pattern
 * [Filesystem Hierarchy Standard](https://www.pathname.com/fhs/)
 * [adduser manual](https://www.commandlinux.com/man-page/man8/addgroup.8.html)
 * [Sudoers](https://help.ubuntu.com/community/Sudoers)
+* [Login shell](https://linuxhandbook.com/login-shell/)
