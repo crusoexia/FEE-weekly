@@ -480,20 +480,39 @@ __Auto-completion__ can dramatically resolve this problem.
 
 # Login shell
 
-TODO: what is loginshell?
+TODO: what is loginshell(The first program to start when you login into the system)?
 
 ANSWER: https://linuxhandbook.com/login-shell/
+ANSWER: https://www.usna.edu/Users/cs/wcbrown/courses/IC221/classes/L03/Class.html
 
 ===
 
-# Practice
-## Check your login shell
+**Practice** - Check your login shell
 
-check /etc/passwd
+Through `/etc/passwd`
 
-Check current running shell
-1. env var
-2. `echo $0`
+![etc passwd file explained](https://linuxhandbook.com/content/images/2021/01/etc-passwd-file-explained.png)
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+===
+
+Tips: The first program for non-login user:
+
+```sh
+daemon:*:1:1:System Services:/var/root:/usr/bin/false
+```
+
+===
+
+**Practice** - Check current running shell
+1. `echo $SHELL`
+2. `echo $0` - prefix with `-` if a login shell
+
+===
+
+# Non-login shell
+
+Subshell: In Linux, when you run a shell script, it runs in its own shell (a non-interactive shell). You can start a new shell from your current shell (an interactive shell). 
 
 ===
 
@@ -502,10 +521,6 @@ Check current running shell
 ===
 
 TODO: the graphic to display the apply order of login-shell config files
-
-> alias cannot be set in .*profile
->
-> TODO: why?
 
 ===
 
@@ -516,12 +531,16 @@ su
 
 ===
 
-## User configuration files
+## Shell config files
 
-* .profile
+* /etc/profile, /etc/zprofile etc.
+* .profile, .bash_profile, .zprofile etc.
   - alias cannot be defined in profile
-* .*shrc
-* .config/
+* .*rc
+
+TODO: Difference between .profile and .*rc: only login shell would use them?
+
+TODO: This allows you to have tab completion, colored output and sets other stuff such as umask etc.
 
 ---
 
@@ -586,6 +605,10 @@ Note: (between emacs and vim)
 ## Introduction
 
 See <the art of unix programming> p.328 - the "roguelike" pattern
+
+===
+
+gx
 
 ---
 
