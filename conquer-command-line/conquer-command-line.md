@@ -374,6 +374,109 @@ The process and its sub-processes have the same access right as the user who sta
 
 ---
 
+# Login Shell
+
+& The login process
+
+===
+
+Execute below command:
+
+```sh
+echo $USER $UID $HOME $SHELL
+cxia 1000 /home/cxia /bin/zsh
+```
+
+How does these _variables_ got initialized?
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+===
+
+When a UNIX system starts up, the first process(either /sbin/init or /usr/bin/systemd) would do below things in order:
+
+-> start multiple getty 
+-> getty detects connection, read username you enter, run the /bin/login
+-> login read the password you enter, examines the /etc/passwd to set up your environment
+-> login grab the first process(for login user, usually it is /bin/bash), set the login flag `-` to tell the shell that it is a _login shell_
+-> bash source the profiles and RC files to initialize your shell variables, PATH, and alias.
+
+===
+
+TODO: order of config files the login shell source
+
+===
+
+Non-Login Shell
+
+TODO: what is non-login shell?
+
+1. environment variables are inherited from the shell (or other process) that created it, and
+2. the file $HOME/.bashrc is sourced to allow for other kinds of customization.
+
+===
+
+ANSWER: https://linuxhandbook.com/login-shell/
+ANSWER: https://www.usna.edu/Users/cs/wcbrown/courses/IC221/classes/L03/Class.html
+
+===
+
+**Practice** - Check your login shell
+
+Through `/etc/passwd`
+
+![etc passwd file explained](https://linuxhandbook.com/content/images/2021/01/etc-passwd-file-explained.png)
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+===
+
+Tips: The first program for non-login user:
+
+```sh
+daemon:*:1:1:System Services:/var/root:/usr/bin/false
+```
+
+===
+
+**Practice** - Check current running shell
+1. `echo $SHELL`
+2. `echo $0` - prefix with `-` if a login shell
+
+===
+
+# Non-login shell
+
+Subshell: In Linux, when you run a shell script, it runs in its own shell (a non-interactive shell). You can start a new shell from your current shell (an interactive shell). 
+
+===
+
+# Config files for login-shell
+
+===
+
+TODO: the graphic to display the apply order of login-shell config files
+
+===
+
+# Practice
+## switch user
+
+su
+
+===
+
+## Shell config files
+
+* /etc/profile, /etc/zprofile etc.
+* .profile, .bash_profile, .zprofile etc.
+  - alias cannot be defined in profile
+* .*rc
+
+TODO: Difference between .profile and .*rc: only login shell would use them?
+
+TODO: This allows you to have tab completion, colored output and sets other stuff such as umask etc.
+
+---
+
 # Boost CLI experience - Tools 
 
 工欲善其事，必先利其器
@@ -473,77 +576,6 @@ __Auto-completion__ can dramatically resolve this problem.
 
 ---
 
-# Enchant CLI 
-## Configuration
-
-===
-
-# Login shell
-
-TODO: what is loginshell(The first program to start when you login into the system)?
-
-ANSWER: https://linuxhandbook.com/login-shell/
-ANSWER: https://www.usna.edu/Users/cs/wcbrown/courses/IC221/classes/L03/Class.html
-
-===
-
-**Practice** - Check your login shell
-
-Through `/etc/passwd`
-
-![etc passwd file explained](https://linuxhandbook.com/content/images/2021/01/etc-passwd-file-explained.png)
-<!-- .element: class="fragment" data-fragment-index="1" -->
-
-===
-
-Tips: The first program for non-login user:
-
-```sh
-daemon:*:1:1:System Services:/var/root:/usr/bin/false
-```
-
-===
-
-**Practice** - Check current running shell
-1. `echo $SHELL`
-2. `echo $0` - prefix with `-` if a login shell
-
-===
-
-# Non-login shell
-
-Subshell: In Linux, when you run a shell script, it runs in its own shell (a non-interactive shell). You can start a new shell from your current shell (an interactive shell). 
-
-===
-
-# Config files for login-shell
-
-===
-
-TODO: the graphic to display the apply order of login-shell config files
-
-===
-
-# Practice
-## switch user
-
-su
-
-===
-
-## Shell config files
-
-* /etc/profile, /etc/zprofile etc.
-* .profile, .bash_profile, .zprofile etc.
-  - alias cannot be defined in profile
-* .*rc
-
-TODO: Difference between .profile and .*rc: only login shell would use them?
-
-TODO: This allows you to have tab completion, colored output and sets other stuff such as umask etc.
-
----
-
 # Practice - File System operation
 
 ===
@@ -625,3 +657,4 @@ gx
 * [adduser manual](https://www.commandlinux.com/man-page/man8/addgroup.8.html)
 * [Sudoers](https://help.ubuntu.com/community/Sudoers)
 * [Login shell](https://linuxhandbook.com/login-shell/)
+* [Login and rc files, the login process](https://www.usna.edu/Users/cs/wcbrown/courses/IC221/classes/L03/Class.html)
