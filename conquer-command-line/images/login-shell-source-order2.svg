@@ -1,0 +1,17 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1093.9791259765625 116.30011648669841" width="1093.9791259765625" height="116.30011648669841">
+  <!-- svg-source:excalidraw -->
+  
+  <defs>
+    <style class="style-fonts">
+      @font-face {
+        font-family: "Virgil";
+        src: url("https://excalidraw.com/Virgil.woff2");
+      }
+      @font-face {
+        font-family: "Cascadia";
+        src: url("https://excalidraw.com/Cascadia.woff2");
+      }
+    </style>
+    
+  </defs>
+  <g stroke-linecap="round"><g transform="translate(11.56640625 11.632147736698414) rotate(0 421.7166124414652 -0.20018179669978053)"><path d="M-0.61 -0.91 C139.93 -0.69, 703.3 0.3, 844.04 0.27 M1.28 1.23 C141.58 1.17, 702.82 -1.38, 843.1 -1.63" stroke="#1e1e1e" stroke-width="1" fill="none"></path></g></g><mask></mask><g transform="translate(10 56.300116486698414) rotate(0 536.9895629882812 25)"><text x="0" y="0" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">These setup environment variables, allows you to have tab completion, colored output and sets other stuff</text><text x="0" y="25" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">such as umask etc.</text></g><g stroke-linecap="round"><g transform="translate(405.3601540829883 47.304022736698414) rotate(0 0.05782026927596462 -10.910290146954367)"><path d="M-1.13 0.15 C-1.35 -3.12, -1.17 -16.84, -0.78 -20.21 M0.48 -0.82 C0.56 -4.37, 1.26 -18.46, 1.34 -21.97" stroke="#1e1e1e" stroke-width="1" fill="none"></path></g><g transform="translate(405.3601540829883 47.304022736698414) rotate(0 0.05782026927596462 -10.910290146954367)"><path d="M4.67 -13.01 C4.07 -14.74, 3.13 -18.04, 0.44 -21.21 M4.39 -11.93 C2.99 -15.27, 2.61 -19.04, 1.43 -21.84" stroke="#1e1e1e" stroke-width="1" fill="none"></path></g><g transform="translate(405.3601540829883 47.304022736698414) rotate(0 0.05782026927596462 -10.910290146954367)"><path d="M-2.47 -13.28 C-0.59 -14.85, 0.94 -18.06, 0.44 -21.21 M-2.75 -12.2 C-1.62 -15.47, 0.53 -19.15, 1.43 -21.84" stroke="#1e1e1e" stroke-width="1" fill="none"></path></g></g><mask></mask></svg>

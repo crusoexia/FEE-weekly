@@ -374,106 +374,156 @@ The process and its sub-processes have the same access right as the user who sta
 
 ---
 
-# Login Shell
-
-& The login process
+# Tweak your CLI
+Configure your shell environment(properly)
 
 ===
 
-Execute below command:
+Configuration files that initialize your shell:
+
+* profile <!-- .element: class="fragment" data-fragment-index="1" -->
+  - .bash_profile, .zprofile, .profile <!-- .element: class="fragment" data-fragment-index="2" -->
+* RC files <!-- .element: class="fragment" data-fragment-index="1" -->
+  - .bashrc, .zshrc<!-- .element: class="fragment" data-fragment-index="3" -->
+
+===
+
+* What's the difference between them?
+* What configuration should go to which? 
+
+Note: Let's find out the answer and the correct way to configure your CLI environment.
+
+===
+
+## The login process
+
+===
+
+Consider below command:
 
 ```sh
 echo $USER $UID $HOME $SHELL
 cxia 1000 /home/cxia /bin/zsh
 ```
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
 How does these _variables_ got initialized?
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+===
+
+When a UNIX system starts up, the first program would be `/sbin/init`(or might be `/usr/bin/systemd` in Linux). 
+<!-- .element: style="text-align: left" -->
+
+===
+
+This _init_ would run below in order:
+<!-- .element: style="text-align: left" -->
+
+1. Start multiple "getty";
+<!-- .element: class="fragment" data-fragment-index="1" style="font-size:.7em" -->
+2. One of the "getty" detects your connection, prompt to ask your user name, run the "/bin/login";
+<!-- .element: class="fragment" data-fragment-index="2" style="font-size:.7em" -->
+3. The "login" prompt to ask your password, examines the "/etc/passwd" to verify your credential, set up your environment;
+<!-- .element: class="fragment" data-fragment-index="3" style="font-size:.7em" -->
+```sh
+root:*:0:0:System Administrator:/var/root:/bin/sh
+          ^                        ^         ^
+          |                        |         |
+        $UID                     $HOME     $SHELL
+```
+<!-- .element: class="fragment" data-fragment-index="4" -->
+4. The "login" run your login program; set the login flag to program;
+<!-- .element: class="fragment" data-fragment-index="5" style="font-size:.7em" -->
+5. "bash" starts with the awareness with the flag that it is the "login shell", it sources the "profiles" and RC files and provide the interactive session for you.
+<!-- .element: class="fragment" data-fragment-index="6" style="font-size:.7em" -->
+
+===
+
+![login process linux](https://linuxhandbook.com/content/images/2021/01/login-process-linux.png)
+
+===
+
+## Login shell
+
+Use "bash" for example, when a shell detects it is a `login-shell`, it source the configuration files in below order:
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+![login shell source order](./images/login-shell-source-order.svg)
+<!-- .element: class="fragment" data-fragment-index="2" style="margin-bottom:0" -->
+![login shell source order 2](./images/login-shell-source-order2.svg)
+<!-- .element: class="fragment" data-fragment-index="3" style="margin-top:-60px"-->
+
+===
+
+## Non-Login Shell
+
+Other than the "login shell", you can have many other shells running at the same time in your system. 
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
 ===
 
-When a UNIX system starts up, the first process(either /sbin/init or /usr/bin/systemd) would do below things in order:
+You starts a new shell process when:
 
--> start multiple getty 
--> getty detects connection, read username you enter, run the /bin/login
--> login read the password you enter, examines the /etc/passwd to set up your environment
--> login grab the first process(for login user, usually it is /bin/bash), set the login flag `-` to tell the shell that it is a _login shell_
--> bash source the profiles and RC files to initialize your shell variables, PATH, and alias.
+1. Starts a interactive shell in your current shell. 
+<!-- .element: class="fragment" data-fragment-index="1" -->
+2. Run a shell script begin with the "#!/bin/bash". 
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
-===
-
-TODO: order of config files the login shell source
+&#x261D; These are __non-login__ shell.
+<!-- .element: class="fragment" data-fragment-index="3" -->
 
 ===
 
-Non-Login Shell
+### The initialization of non-login shell
 
-TODO: what is non-login shell?
-
-1. environment variables are inherited from the shell (or other process) that created it, and
-2. the file $HOME/.bashrc is sourced to allow for other kinds of customization.
-
-===
-
-ANSWER: https://linuxhandbook.com/login-shell/
-ANSWER: https://www.usna.edu/Users/cs/wcbrown/courses/IC221/classes/L03/Class.html
+1. Environment variables are inherited from the shell (or other process) that created it.
+<!-- .element: class="fragment" data-fragment-index="1" -->
+2. The file $HOME/.bashrc is sourced to allow for other kinds of customization.
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
 ===
 
-**Practice** - Check your login shell
+&#x261D; You might notice that the "alias" would not be inherited from the parent shell. If you place the "alias" in the "profile", the non-login shells would not recognize them.
 
-Through `/etc/passwd`
+===
 
-![etc passwd file explained](https://linuxhandbook.com/content/images/2021/01/etc-passwd-file-explained.png)
+## Conclusion
+
+
+* Put the "environment variables" and "PATH" exports in the "profile". <!-- .element: class="fragment" data-fragment-index="2" -->
+* Put the "alias" and other customization per shell process in the RC files.<!-- .element: class="fragment" data-fragment-index="3" -->
+
+Note: Now you know how to properly arrange your configurations
+
+===
+
+**Tips** - Check whether your are using a login shell
+
+```sh
+➜  ~ echo $0
+-zsh
+➜  ~ bash
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+bash-3.2$ echo $0
+bash
+bash-3.2$
+```
+
+The "-" indicates that it is a login shell
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
 ===
 
-Tips: The first program for non-login user:
+**Tips**: The first program for non-login user
 
 ```sh
 daemon:*:1:1:System Services:/var/root:/usr/bin/false
 ```
-
-===
-
-**Practice** - Check current running shell
-1. `echo $SHELL`
-2. `echo $0` - prefix with `-` if a login shell
-
-===
-
-# Non-login shell
-
-Subshell: In Linux, when you run a shell script, it runs in its own shell (a non-interactive shell). You can start a new shell from your current shell (an interactive shell). 
-
-===
-
-# Config files for login-shell
-
-===
-
-TODO: the graphic to display the apply order of login-shell config files
-
-===
-
-# Practice
-## switch user
-
-su
-
-===
-
-## Shell config files
-
-* /etc/profile, /etc/zprofile etc.
-* .profile, .bash_profile, .zprofile etc.
-  - alias cannot be defined in profile
-* .*rc
-
-TODO: Difference between .profile and .*rc: only login shell would use them?
-
-TODO: This allows you to have tab completion, colored output and sets other stuff such as umask etc.
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
 ---
 
