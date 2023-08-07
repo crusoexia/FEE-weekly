@@ -692,6 +692,21 @@ See <the art of unix programming> p.328 - the "roguelike" pattern
 
 gx
 
+===
+
+Command: Predicate [ - Scope ] - Quantifiers
+
+vi拥趸特别吹捧的一个命令集特性就是继承来自ed的对象操作格式。大多数扩展的命令也可以自然地用于任何行范围。
+
+e.g.
+
+dd
+dj
+dk
+daw
+d2w
+d3j
+
 ---
 
 # Practice - System management
