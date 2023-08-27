@@ -529,7 +529,7 @@ daemon:*:1:1:System Services:/var/root:/usr/bin/false
 
 # Zen - IHE 
 
-Setup your _Immersive Hacking Environment_.
+_Immersive Hacking Environment_.
 
 工欲善其事，必先利其器
 
@@ -539,23 +539,25 @@ Setup your _Immersive Hacking Environment_.
 
 ===
 
-## But... WHY?
+## Wait... But WHY?
 
-The things you show us looks ancient, the learning curve is steep, and we already have _IDEs_, why should I bother with them? 
-
-===
-
-__Benefits__
-
-* Summon, instead of seeking in the jungle
-* Declarative, what you think is what you get
-* Consistent control/communication method across programs
-* Unbelievable customizability
-* Automation
+It looks ancient, the learning curve is steep, we already have _VS Code_(or whatever), why should I bother with any other? 
 
 ===
 
-_CLI_ is another way(and the original way) of communication with the computer, there are tools can vastly boost this communication with accuracy and efficiency.
+Nothing but __Powerful__(and Playful)
+
+* Summoning, instead of exploring in the jungle.
+* Command with _Mind_, no more redundant actions.
+* One pattern learnd, used anywhere.
+* Optimized only for your own taste.
+* Boost by Automation & Composition.
+
+===
+
+Once you master these tools, you will find yourself stand at another latitude of __Productivity__ and __Fun__.
+
+For myself, looking at the computer dancing with my mind, loyally working on what I asked is a pure part of joy. This feeling is GOOD.
 
 ===
 
@@ -564,10 +566,6 @@ Unix作为一个良好的开发环境长期以来享有盛誉。许多程序员�
 攀爬学习曲线的一次性付出，得到的是更有效编写程序的能力；精力也可以更多地放在设计层面而不是低层次的细节操作。
 
 -- _The Art Of Unix Programming_
-
-===
-
-For me, looking at the computer follows my mind and finger, loyally working on what I asked is a pure part of joy. This feeling is GOOD.
 
 ===
 
@@ -584,15 +582,15 @@ Ususaly I use the _IHE_ to:
 
 ===
 
-# The Tools
+## Tools on the belt
 
 ===
 
-## Terminal
+### No.1 CLI Terminal
 
 ===
 
-Terminals are many, but there is a critical capability to filter them: *Standby for your call with an identified command*.
+Terminals are many, but there is only one critical capability to consider: *Standby For You Call*.
 
 ![quake console](./images/quake-console.png)
 <!-- .element: class="fragment" style="height: 400px" data-fragment-index="1" -->
@@ -603,7 +601,7 @@ Compare with searching in a messed list with `tab` and eyes(and brain), using `c
 
 ===
 
-Recommond terminals:
+Recommendation:
 
 * Mac - *iterm2*
 * Windows - *Windows terminal*
@@ -611,60 +609,63 @@ Recommond terminals:
 
 ===
 
-## tmux
-The magic amplifier.
+### No.2 tmux
 
-Get what you need right at your hand.
-
-Now you have your CLI, you still want diff workspaces for different things, and a way to quick and accuate switch between them.
-
-===
-
-> 但是用户经常更愿意有一个大的环境让它们能够指向文本部分，无需花费时间和精力在拥有相同文件名或是相同剪切内容的程序之间切来切去。
-
-===
-
-https://www.redhat.com/sysadmin/introduction-tmux-linux
-
-===
-
-Introduct concepts
-
-Session, Window, Pane
-
-===
+The Magic Amplifier.
 
 ![tmux](./images/tmux.svg)
 
 ===
 
+Capability
+
+* Split the terminal into _windows_ and _panes_.
+* Highly customizable layouts.
+* Zooming.
+* Sessions for different tasks.
+* Quick session switch.
+* Browse history with _vi_ key binding.
+* Works smoothly with terminal based editors.
+
+===
+
+Extension
+
+* [TPM](https://github.com/tmux-plugins/tpm)
+  - tmux-plugins/tmux-sensible
+  - christoomey/vim-tmux-navigator
+* Tmuxinator
+
+===
+
+Demo:
+
 * Session management
-  - Create Session
-  - Attach Session
-  - Switch Session
 * Window management
-  - Create Window
-  - Window navigation
-  - Search/Switch Window
-  - Swap window
-  - Move window to session
 * Pane management
-  - Create Pane
-  - Pane navigation
-  - Pane position
-  - Move Pane to window
+* Predefined workspaces
 
 ===
 
-Tmuxinator
+References:
 
-Predefined tmux workspace
+* [tmux](https://github.com/tmux/tmux/wiki)
+* [Redhat: introduction tmux linux](https://www.redhat.com/sysadmin/introduction-tmux-linux)
+* [tmux cheat sheet](https://tmuxcheatsheet.com/)
+* [My tmux config](https://github.com/crusoexia/habits/blob/master/configs/.tmux.conf)
 
 ===
 
-## oh-my-zsh
+### No.3 Vim(Emacs)
 
-Capability enabled:
+===
+
+### No.4 Shell & CLI Programming
+
+===
+
+### No.5 oh-my-zsh
+
 * auto-completion
 * better autojump
 * better vi-mode
@@ -674,14 +675,26 @@ Capability enabled:
 
 ===
 
-One downside of the CLI is you have to remember the commands and their options(usability). 
-
-__Auto-completion__ can dramatically resolve this problem.
-<!-- .element: class="fragment" data-fragment-index="1" -->
+### No.6 auto-jump
 
 ===
 
-## auto-jump
+### Other frequently used tools
+
+* fzf - _control-p_ of command-line.
+* cat / less / more / head / tail
+* grep / Rz / Az
+* open
+* find / fd
+* curl
+* wget
+* awk
+* dict
+* ...
+
+===
+
+有些风景是无法向人描述的，只有当你真正到了那里，才能切身感受到它的壮美。
 
 ---
 
