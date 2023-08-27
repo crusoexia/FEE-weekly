@@ -527,42 +527,64 @@ daemon:*:1:1:System Services:/var/root:/usr/bin/false
 
 ---
 
-# Boost CLI experience - Tools 
+# Zen - IHE 
+
+Setup your _Immersive Hacking Environment_.
 
 工欲善其事，必先利其器
 
 ===
 
-Unix作为一个良好的开发环境长期以来享有盛誉。许多程序员为程序员而写的工具使它配备精良。这些工具自动完成了不少琐碎的工作，从而让人心无旁骛地专注于开发中最重要（也是最享受）的部分——设计。
-
-Unix提倡一种更灵活的风格，一种以编辑/编译/调试循环为中心、排它性更少的风格。
-
-攀爬学习曲线的一次性付出，得到的是更有效编写程序的能力；精力也可以更多地放在设计层面而不是低层次的细节操作。
+![IHE](./images/immersive-hacking-environment.png)
 
 ===
 
-IWE - Integrated working environment
+## But... WHY?
 
-working included:
+The things you show us looks ancient, the learning curve is steep, and we already have _IDEs_, why should I bother with them? 
 
-* documentation
-* notes
-* common computing tasks
-* coding
-* read news
-* read emails
-* search on the internet
+===
+
+__Benefits__
+
+* Summon, instead of seeking in the jungle
+* Declarative, what you think is what you get
+* Consistent control/communication method across programs
+* Unbelievable customizability
+* Automation
+
+===
+
+_CLI_ is another way(and the original way) of communication with the computer, there are tools can vastly boost this communication with accuracy and efficiency.
+
+===
+
+Unix作为一个良好的开发环境长期以来享有盛誉。许多程序员为程序员而写的工具使它配备精良。这些工具自动完成了不少琐碎的工作，从而让人心无旁骛地专注于开发中最重要（也是最享受）的部分——设计。
+
+攀爬学习曲线的一次性付出，得到的是更有效编写程序的能力；精力也可以更多地放在设计层面而不是低层次的细节操作。
+
+-- _The Art Of Unix Programming_
+
+===
+
+For me, looking at the computer follows my mind and finger, loyally working on what I asked is a pure part of joy. This feeling is GOOD.
+
+===
+
+Ususaly I use the _IHE_ to:
+
+* Common computing tasks
+* Writing / Documentation
+* Take notes
+* Dictionary
+* Coding
+* Read news
+* Read/Send emails
 * ...
 
 ===
 
-Integrated environment
-
-workflow:
-
-1.
-2.
-3.
+# The Tools
 
 ===
 
