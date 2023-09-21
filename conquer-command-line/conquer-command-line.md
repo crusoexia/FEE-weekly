@@ -541,11 +541,11 @@ _Immersive Hacking Environment_.
 
 ## Wait... But WHY?
 
-It looks ancient, the learning curve is steep, we already have _VS Code_(or whatever), why should I bother with any other? 
+It looks ancient, the learning curve is steep, we already have _VS Code_(or whatever), why should I bother with all these weird looking? 
 
 ===
 
-Nothing but __Powerful__(and Playful)
+Nothing but __Productivity__ and __Playability__
 
 * Summoning, instead of exploring in the jungle.
 * Command with _Mind_, no more redundant actions.
@@ -585,12 +585,18 @@ Ususaly I use the _IHE_ to:
 ## Tools on the belt
 
 TODO: RANKING in
-* Playful
+* Playability
 * Productivity
 
 ===
 
-### No.1 CLI Terminal
+### No.1 Terminal
+
+
+|              |                           |
+| ------------ | ------------------------- |
+| Productivity: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
+| Playability: | &#x1F34E;&#x1F34E; |
 
 ===
 
@@ -615,7 +621,7 @@ Recommendation:
 
 ### No.2 tmux
 
-The Magic Amplifier.
+The Terminal Session Scheduler.
 
 ![tmux](./images/tmux.svg)
 
@@ -623,12 +629,12 @@ The Magic Amplifier.
 
 Capability
 
-* Split the terminal into _windows_ and _panes_.
-* Highly customizable layouts.
-* Zooming.
 * Sessions for different tasks.
 * Quick session switch.
-* Browse history with _vi_ key binding.
+* Split the session into _windows_ and _panes_.
+* Highly customizable layouts.
+* Zooming.
+* _vi_ key binding.
 * Works smoothly with terminal based editors.
 
 ===
@@ -662,9 +668,21 @@ References:
 
 ### No.3 Vim(Emacs)
 
+One Universal Editor + Language Servers
+
+vs 
+
+Various IDEs for Various languages
+
+and More.
+
 ===
 
 ### No.4 Shell & CLI Programming
+
+> One line shell can beaten 10,000 lines of C program.
+>
+> -- Rootless Root
 
 ===
 
@@ -680,6 +698,8 @@ References:
 ===
 
 ### No.6 auto-jump
+
+TODO: screenshot
 
 ===
 
@@ -698,7 +718,7 @@ References:
 
 ===
 
-有些风景是无法向人描述的，只有当你真正到了那里，才能切身感受到它的壮美。
+有些风景是不可描述的，只有当你真正到了那里，才能切身感受它的壮美。
 
 ---
 
