@@ -545,19 +545,19 @@ It looks ancient, the learning curve is steep, we already have _VS Code_(or what
 
 ===
 
-Nothing but __Productivity__ and __Playability__
+The Tao: __Productivity__ and __Playability__
 
-* Summoning, instead of exploring in the jungle.
-* Command with _Mind_, no more redundant actions.
-* One pattern learnd, used anywhere.
+* Focus on your _Mind_, ignore operation details.
+* One pattern learnd, apply to everywhere.
 * Optimized only for your own taste.
-* Boost by Automation & Composition.
+* Boost with Automation & Composition.
 
 ===
 
-Once you master these tools, you will find yourself stand at another latitude of __Productivity__ and __Fun__.
+Once you mastered these tools, you will find yourself stand at another latitude of __Concentration__ and __Efficiency__.
 
-For myself, looking at the computer dancing with my mind, loyally working on what I asked is a pure part of joy. This feeling is GOOD.
+For myself, watching the machine dancing after my mind, unlocking computer's True power by unlimited composition is a pure feeling of __Joy__. 
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
 ===
 
@@ -576,27 +576,17 @@ Ususaly I use the _IHE_ to:
 * Take notes
 * Dictionary
 * Coding
-* Read news
-* Read/Send emails
+* ~~Read news~~
+* ~~Read/Send emails~~
 * ...
 
 ===
 
 ## Tools on the belt
 
-TODO: RANKING in
-* Playability
-* Productivity
-
 ===
 
-### No.1 Terminal
-
-
-|              |                           |
-| ------------ | ------------------------- |
-| Productivity: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
-| Playability: | &#x1F34E;&#x1F34E; |
+### 1. Terminal
 
 ===
 
@@ -607,7 +597,14 @@ Terminals are many, but there is only one critical capability to consider: *Stan
 
 ===
 
-Compare with searching in a messed list with `tab` and eyes(and brain), using `ctrl/cmd + ;` to summon and dismiss the terminal is JUST elegant!
+Compare with searching in a messed list with `tab`s, eyes and your brain, how Elegant it is to using a __Single__ key stoke to __Summon__ and __Dismiss__ the terminal!
+
+===
+
+|              |                           |
+| ------------ | ------------------------- |
+| Productivity: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
+| Playability: | &#x1F34E;&#x1F34E; |
 
 ===
 
@@ -619,11 +616,9 @@ Recommendation:
 
 ===
 
-### No.2 tmux
+### 2. tmux
 
-The Terminal Session Scheduler.
-
-![tmux](./images/tmux.svg)
+The Terminal Session Manager.
 
 ===
 
@@ -639,12 +634,7 @@ Capability
 
 ===
 
-Extension
-
-* [TPM](https://github.com/tmux-plugins/tpm)
-  - tmux-plugins/tmux-sensible
-  - christoomey/vim-tmux-navigator
-* Tmuxinator
+![tmux](./images/tmux.svg)
 
 ===
 
@@ -657,6 +647,22 @@ Demo:
 
 ===
 
+Extension
+
+* [TPM](https://github.com/tmux-plugins/tpm)
+  - tmux-plugins/tmux-sensible
+  - christoomey/vim-tmux-navigator
+* Tmuxinator
+
+===
+
+|              |                           |
+| ------------ | ------------------------- |
+| Productivity: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
+| Playability: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
+
+===
+
 References:
 
 * [tmux](https://github.com/tmux/tmux/wiki)
@@ -666,7 +672,7 @@ References:
 
 ===
 
-### No.3 Vim(Emacs)
+### 3. Vim(Emacs)
 
 One Universal Editor + Language Servers
 
@@ -678,7 +684,14 @@ and More.
 
 ===
 
-### No.4 Shell & CLI Programming
+|              |                           |
+| ------------ | ------------------------- |
+| Productivity: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
+| Playability: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
+
+===
+
+### 4. Shell & CLI Programming
 
 > One line shell can beaten 10,000 lines of C program.
 >
@@ -686,20 +699,43 @@ and More.
 
 ===
 
-### No.5 oh-my-zsh
+|              |                           |
+| ------------ | ------------------------- |
+| Productivity: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
+| Playability: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
+
+===
+
+### 5. oh-my-zsh
 
 * auto-completion
-* better autojump
-* better vi-mode
-* better history management
+* fast directory jump
+* vi-mode
+* history management
 * pretty
 * and more
 
 ===
 
-### No.6 auto-jump
+|              |                           |
+| ------------ | ------------------------- |
+| Productivity: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
+| Playability: | &#x1F34E;&#x1F34E; |
 
-TODO: screenshot
+===
+
+### 6. auto-jump
+
+Jump to where you want from anywhere.
+
+![auto jump](./images/auto-jump.png)
+
+===
+
+|              |                           |
+| ------------ | ------------------------- |
+| Productivity: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
+| Playability: | &#x1F34E; |
 
 ===
 
