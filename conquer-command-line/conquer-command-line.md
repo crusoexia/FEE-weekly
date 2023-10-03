@@ -758,6 +758,145 @@ Jump to where you want from anywhere.
 
 ---
 
+# Vim
+
+The power tool for everyone!
+
+===
+
+## The Holy War
+
+between emacs and vim
+
+The god's editor vs The editors' god.
+
+===
+
+Difference between Vim and Emacs:
+
+* Multi-tasking
+* Message channel with sub-processes
+* Command pattern
+* Mode based editing
+
+===
+
+Philosophy
+
+* __emacs__: All-In-One.
+* __vim__: Do one thing, do it good.
+
+===
+
+However, with modern Vim and [neovim](https://neovim.io/), the capability shortcoming between the emacs has been made up.
+
+===
+
+## History
+
+The relationship with "ed".
+
+===
+
+Action + Quantity + Object = Vim command
+
+vi拥趸特别吹捧的一个命令集特性就是继承来自ed的对象操作格式。大多数扩展的命令也可以自然地用于任何行范围。
+
+e.g.
+
+dd
+dj
+dk
+daw
+d2w
+d3j
+
+===
+
+See <the art of unix programming> p.328 - the "roguelike" pattern
+
+===
+
+## Modes
+
+===
+
+* Normal
+* Insert
+* Visual
+* Command
+
+===
+
+Switch modes
+
+a, i, [esc], :, /*
+
+===
+
+## Navigation
+
+h,j,k,l
+
+list / tab / buffer
+
+n, p
+
+window
+
+[c-w][c-w]
+
+===
+
+## Action
+
+===
+
+## Objects
+
+letter, word, line, paragraph, block
+
+===
+
+## Search
+
+===
+
+## Copy & Paste and Registry
+
+===
+
+## Folding
+
+===
+
+## Plugins
+
+* NERDTree
+* coc.nvim
+
+===
+
+## Other features
+
+gx
+
+run shell command
+
+vimium
+
+unlimited undo and redo
+
+vimscript
+
+===
+
+## References
+
+* [Learn Vimscript the Hard Way](https://learnvimscriptthehardway.stevelosh.com/)
+
+---
+
 # Practice - File System operation
 
 ===
@@ -805,43 +944,6 @@ repgrep
 ---
 
 # Practice - Scripting
-
----
-
-# Practice - Text Editor
-
-The Holy War 
-
-Note: (between emacs and vim)
-
-===
-
-## Introduction
-
-The relationship with "ed".
-
-===
-
-See <the art of unix programming> p.328 - the "roguelike" pattern
-
-===
-
-gx
-
-===
-
-Command: Predicate [ - Scope ] - Quantifiers
-
-vi拥趸特别吹捧的一个命令集特性就是继承来自ed的对象操作格式。大多数扩展的命令也可以自然地用于任何行范围。
-
-e.g.
-
-dd
-dj
-dk
-daw
-d2w
-d3j
 
 ---
 
