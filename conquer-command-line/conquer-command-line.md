@@ -539,36 +539,6 @@ _Immersive Hacking Environment_.
 
 ===
 
-## Wait... But WHY?
-
-It looks ancient, the learning curve is steep, we already have _VS Code_(or whatever), why should I bother with all these weird looking? 
-
-===
-
-The Tao: __Productivity__ and __Playability__
-
-* Focus on your _Mind_, ignore operation details.
-* One pattern learnd, apply to everywhere.
-* Optimized only for your own taste.
-* Boost with Automation & Composition.
-
-===
-
-Once you mastered these tools, you will find yourself stand at another latitude of __Concentration__ and __Efficiency__.
-
-For myself, watching the machine dancing after my mind, unlocking computer's True power by unlimited composition is a pure feeling of __Joy__. 
-<!-- .element: class="fragment" data-fragment-index="1" -->
-
-===
-
-Unix作为一个良好的开发环境长期以来享有盛誉。许多程序员为程序员而写的工具使它配备精良。这些工具自动完成了不少琐碎的工作，从而让人心无旁骛地专注于开发中最重要（也是最享受）的部分——设计。
-
-攀爬学习曲线的一次性付出，得到的是更有效编写程序的能力；精力也可以更多地放在设计层面而不是低层次的细节操作。
-
--- _The Art Of Unix Programming_
-
-===
-
 Ususaly I use the _IHE_ to:
 
 * Common computing tasks
@@ -582,11 +552,54 @@ Ususaly I use the _IHE_ to:
 
 ===
 
+## Wait... But WHY?
+
+It looks ancient, the learning curve is steep, we already have _VS Code_(or whatever), why should I bother with all these weird looking? 
+
+===
+
+The Mess on the Desktop
+
+![the mess gui](./images/the-mess-gui.png)
+
+===
+
+Unix作为一个良好的开发环境长期以来享有盛誉。许多程序员为程序员而写的工具使它配备精良。这些工具自动完成了不少琐碎的工作，从而让人心无旁骛地专注于开发中最重要（也是最享受）的部分——设计。
+
+攀爬学习曲线的一次性付出，得到的是更有效编写程序的能力；精力也可以更多地放在设计层面而不是低层次的细节操作。
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+-- _The Art Of Unix Programming_
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+===
+
+The Tao: __Productivity__ and __Playability__
+
+* Focus on your _Mind_, ignore operation details.
+* One pattern learnd, apply to everywhere.
+* DIY
+* Boost with Automation & Composition.
+
+===
+
+Once you mastered these tools, you will find yourself stand at another latitude of __Concentration__ and __Efficiency__.
+
+For myself, watching the machine dancing after my mind, unlocking computer's True power by unlimited composition is a pure feeling of __Joy__. 
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+===
+
 ## Tools on the belt
 
 ===
 
 ### 1. Terminal
+
+|              |                           |
+| ------------ | ------------------------- |
+| Productivity: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
+| Playability: | &#x1F34E;&#x1F34E; |
 
 ===
 
@@ -601,13 +614,6 @@ Compare with searching in a messed list with `tab`s, eyes and your brain, how El
 
 ===
 
-|              |                           |
-| ------------ | ------------------------- |
-| Productivity: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
-| Playability: | &#x1F34E;&#x1F34E; |
-
-===
-
 Recommendation:
 
 * Mac - *iterm2*
@@ -619,6 +625,19 @@ Recommendation:
 ### 2. tmux
 
 The Terminal Session Manager.
+
+|              |                           |
+| ------------ | ------------------------- |
+| Productivity: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
+| Playability: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
+
+===
+
+![](./images/tmux-sessions.png)
+<!-- .element: style="width: 50%; margin: auto" -->
+&#x2B07;
+![](./images/tmux-default-session.png)
+<!-- .element: style="width: 50%; margin: auto" -->
 
 ===
 
@@ -656,13 +675,6 @@ Extension
 
 ===
 
-|              |                           |
-| ------------ | ------------------------- |
-| Productivity: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
-| Playability: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
-
-===
-
 References:
 
 * [tmux](https://github.com/tmux/tmux/wiki)
@@ -674,6 +686,13 @@ References:
 
 ### 3. Vim(Emacs)
 
+|              |                           |
+| ------------ | ------------------------- |
+| Productivity: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
+| Playability: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
+
+===
+
 One Universal Editor + Language Servers
 
 vs 
@@ -684,38 +703,13 @@ and More.
 
 ===
 
-|              |                           |
-| ------------ | ------------------------- |
-| Productivity: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
-| Playability: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
+The IHE cannot be the IHE if you cannot __Craft Your Hacks__ in it.
 
 ===
 
-### 4. Shell & CLI Programming
+### 4. oh-my-zsh
 
-> One line shell can beaten 10,000 lines of C program.
->
-> -- Rootless Root
-
-===
-
-|              |                           |
-| ------------ | ------------------------- |
-| Productivity: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
-| Playability: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
-
-===
-
-### 5. oh-my-zsh
-
-* auto-completion
-* fast directory jump
-* vi-mode
-* history management
-* pretty
-* and more
-
-===
+There are so many commands! But you don't have to remember every details of them.
 
 |              |                           |
 | ------------ | ------------------------- |
@@ -724,13 +718,18 @@ and More.
 
 ===
 
-### 6. auto-jump
-
-Jump to where you want from anywhere.
-
-![auto jump](./images/auto-jump.png)
+* auto-completion
+* `cd` shoutcuts
+* vi-mode
+* history management
+* pretty
+* ...
 
 ===
+
+### 5. auto-jump
+
+Jump to where you want from anywhere.
 
 |              |                           |
 | ------------ | ------------------------- |
@@ -739,22 +738,126 @@ Jump to where you want from anywhere.
 
 ===
 
-### Other frequently used tools
+![auto jump](./images/auto-jump.png)
+
+===
+
+### 6. Shell & CLI Programming
+
+|              |                           |
+| ------------ | ------------------------- |
+| Productivity: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
+| Playability: | &#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E;&#x1F34E; |
+
+===
+
+> One line shell can beaten 10,000 lines of C program.
+>
+> -- Rootless Root
+
+===
+
+__Shell__ = Reuse existing tools to accomplish various tasks
+
+Some usages are even out of the tool creator's imagination.
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+===
+
+What's the Big deal with below __JavaScript__?
+
+```javascript
+function prettyPrint(json) {
+  try {
+    console.log(
+      JSON.stringify(
+        JSON.parse(json), 
+        null, 
+        2,
+      ),
+    );
+  } catch {
+    console.error('Invalid JSON:', json);
+  }
+}
+```
+[Source code of fjson](https://github.com/crusoexia/habits/blob/master/bin/fjson)
+<!-- .element: style="font-size: 0.5em" -->
+
+===
+
+/opt/active/logs/activeworks-webui-v2.log
+
+```
+{"Action":"test","ApplicationName":"activeworks-webui-v2","ApplicationType":"WEB","ApplicationVersion":"1.0.0","EventMessage":"logging/loggers: security info message","EventName":"test_sel","EventTime":"2023-09-19T10:08:02.249+08:00","Object":"sel","ServerIP":"10.109.9.96","ServerName":"CHE34192M","Severity":"INFO"}
+{"Action":"test","ApplicationName":"activeworks-webui-v2","ApplicationType":"WEB","ApplicationVersion":"1.0.0","EventName":"test_security-logger-level-info","EventTime":"2023-09-19T10:08:02.656+08:00","Object":"security-logger-level-info","ServerIP":"10.109.9.96","ServerName":"CHE34192M","Severity":"INFO"}
+{"Action":"test","ApplicationName":"activeworks-webui-v2","ApplicationType":"WEB","ApplicationVersion":"1.0.0","EventName":"test_security-logger-level-error","EventTime":"2023-09-19T10:08:02.657+08:00","Object":"security-logger-level-error","ServerIP":"10.109.9.96","ServerName":"CHE34192M","Severity":"ERROR"}
+{"Action":"start","ApplicationName":"activeworks-webui-v2","ApplicationType":"WEB","ApplicationVersion":"17.1.2","EventCategory":"APPAUDIT","EventName":"start_app","EventOutcome":"SUCCESS","EventTime":"2023-09-19T14:30:32.663+08:00","Object":"app","ServerIP":"10.109.9.96","ServerName":"CHE34192M","Severity":"INFO"}
+```
+<!-- .element: style="font-size: 12pt" -->
+
+===
+
+Case 1: Basic usage
+
+![](./images/fjson-case-1.png)
+
+===
+
+Case 2: Read from file
+
+![](./images/fjson-case-2.png)
+<!-- .element: style="height: 500px;" -->
+
+===
+
+Case 3: Combined with other tools
+
+![](./images/fjson-case-3.png)
+<!-- .element: style="height: 500px;" -->
+
+===
+
+So that we can even format the server output lively:
+
+```sh
+tail -f /opt/active/logs/activeworks-webui-v2-security.log | fjson
+```
+<!-- .element: style="font-size: 12pt" -->
+
+===
+
+Case 4: Use it in your __Editor__
+
+![](./images/fjson-case-4.png)
+<!-- .element: style="width: 80%; margin: auto" -->
+
+&#x2B07;
+
+![](./images/fjson-case-5.png)
+<!-- .element: style="width: 80%; margin: auto" -->
+
+===
+
+GUI are Islands, __CLI programs__ composed the __Ocean__.
+
+===
+
+### Other useful tools
 
 * fzf - _control-p_ of command-line.
 * cat / less / more / head / tail
-* grep / Rz / Az
+* grep / Rg / Ag
 * open
 * find / fd
-* curl
-* wget
-* awk
+* curl / wget
+* awk / sed
 * dict
 * ...
 
 ===
 
-有些风景是不可描述的，只有当你真正到了那里，才能切身感受它的壮美。
+有些风景是不可描述的，只有当你真正到了那里，才能切身领略到它的壮美。
 
 ---
 
