@@ -1,7 +1,7 @@
 ---
 title: Conquer CLI
 verticalSeparator: ^===$
-theme: solarized
+theme: dracula
 ---
 
 <!-- .slide: data-background="./images/the-matrix.png" -->
@@ -865,138 +865,378 @@ GUI are Islands, __CLI programs__ composed the __Ocean__.
 
 The power tool for everyone!
 
-===
-
-## The Holy War
-
-between emacs and vim
-
-The god's editor vs The editors' god.
+_RIP Bram Moolenaar_
+<!-- .element: class="fragment" data--fragment-index="1" -->
 
 ===
 
-Difference between Vim and Emacs:
+## Editor War
 
-* Multi-tasking
-* Message channel with sub-processes
-* Command pattern
-* Mode based editing
+* vim
+  - The editors' God.
+  <!-- .element: class="fragment" data-fragment-index="1" -->
+  - Do one thing, do it good.
+  <!-- .element: class="fragment" data-fragment-index="1" -->
+* emacs
+  - The God's editor.
+  <!-- .element: class="fragment" data-fragment-index="2" -->
+  - All-In-One Platform
+  <!-- .element: class="fragment" data-fragment-index="2" -->
 
-===
-
-Philosophy
-
-* __emacs__: All-In-One.
-* __vim__: Do one thing, do it good.
-
-===
-
-However, with modern Vim and [neovim](https://neovim.io/), the capability shortcoming between the emacs has been made up.
+See the [Editor_war](https://en.wikipedia.org/wiki/Editor_war) for details.
+<!-- .element: class="fragment" data-fragment-index="6" -->
 
 ===
 
 ## History
 
-The relationship with "ed".
+Inherit from ["ed"](https://en.wikipedia.org/wiki/Ed_(text_editor)) - A line-oriented text editor.
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+>The ed text editor was one of the first three key elements of the Unix operating system — __assembler__, __editor__, and __shell__ — developed by Ken Thompson in August 1969 on a PDP-7 at AT&T Bell Labs.
+>
+> -- wikipedia
+<!-- .element: class="fragment" data-fragment-index="2" style="font-size: .8em;text-align:left;" -->
+
+Example commands: `dd`, `dj`, `a`, `w`, `s`, `q`
+<!-- .element: class="fragment" data-fragment-index="3" -->
 
 ===
 
-Action + Quantity + Object = Vim command
+__ed__ the ancestor
 
-vi拥趸特别吹捧的一个命令集特性就是继承来自ed的对象操作格式。大多数扩展的命令也可以自然地用于任何行范围。
-
-e.g.
-
-dd
-dj
-dk
-daw
-d2w
-d3j
+![](./images/ed-the-ancestor.png)
 
 ===
 
-See <the art of unix programming> p.328 - the "roguelike" pattern
+## Major Advantages
+
+* Extremely Powerful keybinding that mapping English to Editing Commands. <!-- .element: class="fragment" data-fragment-index="1" -->
+* Can be used Everywhere. <!-- .element: class="fragment" data-fragment-index="2" -->
+
+![](./images/emacs-evil.png)
+<!-- .element: class="fragment" data-fragment-index="3" -->
 
 ===
 
-## Modes
+## Basics
 
 ===
 
-* Normal
-* Insert
-* Visual
-* Command
+### Get Help
+
+* <!-- .element: class="fragment" data-fragment-index="1" --> Built-in documents
+    - `:help` or `:h`
+* <!-- .element: class="fragment" data-fragment-index="2" --> Search by keyword
+    - `:help` _keyword_
+* <!-- .element: class="fragment" data-fragment-index="3" --> Jump to Link
+    - `ctrl + ]` jump into link
+    - `ctrl + o` jump back
 
 ===
 
-Switch modes
+### Mode Based Editor
 
-a, i, [esc], :, /*
-
-===
-
-## Navigation
-
-h,j,k,l
-
-list / tab / buffer
-
-n, p
-
-window
-
-[c-w][c-w]
+* Edit mode
+  - [__a__]ppend, [__i__]nsert, [__s__]ubstitute
+  - [__r__]place, [__o__]pen line for editing
+* Command mode
+  - __esc__, __ctrl__ + __[__
+* Visual mode
+  - In Command mode _->_ [__v__]isual, __ctrl__ + __v__(Blockwise visual)
+* Last-Line mode
+  - In Command or Visual mode _->_ __:__
 
 ===
 
-## Action
+![Vim modes](./images/vim-modes.png)
+<!-- .element: style="width:90%;margin: auto;background:white" -->
 
 ===
 
-## Objects
+## Edit mode
 
-letter, word, line, paragraph, block
-
-===
-
-## Search
-
-===
-
-## Copy & Paste and Registry
-
-===
-
-## Folding
+* <!-- .element: class="fragment" data-fragment-index="1" --> Edit Buffer instead of file 
+* <!-- .element: class="fragment" data-fragment-index="2" --> Read file
+    - `:e [file]`
+    - `:e` to _flush_ the file to buffer
+* <!-- .element: class="fragment" data-fragment-index="3" --> Write buffer to File
+    - `:w`
+    - `:w!` force write
+    - `:wq` or `ZZ` in Command Mode - write and quit
 
 ===
 
-## Plugins
+Key mapping for editing
 
-* NERDTree
-* coc.nvim
+![](./images/vim-edit-mode.png)
+<!-- .element: style="background:white" -->
 
 ===
 
-## Other features
+## Command mode
 
-gx
+* Move Cursor
+<!-- .element: class="fragment" data-fragment-index="1" -->
+* Command Actions
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
-run shell command
+===
 
-vimium
+### Move Cursor
 
-unlimited undo and redo
+===
 
-vimscript
+By _Letter_
+
+![](./images/vim-curser-letter.png)
+<!-- .element: style="width: 360px;margin: auto;background:white" -->
+
+===
+
+* `0`, `^` move to the first letter in line; `$` move to the last letter.
+*  `f` & `F` forward the cursor the specified letter.
+    - `;` would repeat last forwording.
+    - `,` would repeat last forwording, but inversion the direction.
+
+![](./images/vim-cursor-letter-details.png)
+<!-- .element: style="background:white" -->
+
+===
+
+By _Word_
+
+![](./images/vim-cursor-word.png)
+<!-- .element: style="background:white" -->
+
+===
+
+By _Sentence_ & _Paragraph_ 
+
+![](./images/vim-cursor-paragraph.png)
+<!-- .element: style="background:white" -->
+
+===
+
+By _Brackets_
+
+![](./images/vim-cursor-brackets.png)
+<!-- .element: style="background:white" -->
+
+===
+
+By _Screen_
+
+![](./images/vim-cursor-screen.png)
+<!-- .element: style="background:white" -->
+
+===
+
+Advanced
+
+* window
+    - `[c-w]h|j|k|l`, `[c-w][c-w]` 
+* select / list / menu
+    - `[c-n]` next option
+    - `[c-p]` previous option
+* tab
+    - `(n)gt`
+
+===
+
+**Visual Mode** & **Block Visual Mode**
+
+*  `v` in command mode to enter Visual Mode.
+*  `[c-v]` to enter Block Visual Mode.
+*  Moving cursor to select text.
+*  Execute _Action_ against selection.
+
+===
+
+### Action in Command Mode
+
+===
+
+Objects in vim
+
+| Object    | Key                                       |
+|-----------|-------------------------------------------|
+| Letter    | `l`                                       |
+| Word      | `w`                                       |
+| Line      | `j`,`k`                                   |
+| Paragraph | `p`, `{`, `}`                             |
+| Blocks    | `b`, `B`, `"`, `'`, `_`, `-`, `<`, `>`... |
+| Xml Tag   | `t`                                       |
+
+===
+
+* [`d`]elete
+    - _+_
+       | Step 1            | Step 2            |
+       |-------------------|-------------------|
+       | _Optional_ Number | Object            |
+       | `a` or `i`n       | Block; Quote; Tag |
+       | `^` or `$`        | N/A               |
+    - `dd` would delete current line
+    - Would return to **Command Mode**
+* (n)`x` would delete current letter.
+
+===
+
+Edit around _Quotes_ & _Brackets_
+
+![](./images/vim-edit-blocks.png)
+<!-- .element: style="background:white" -->
+
+===
+
+* [`c`]hange
+    - _+_
+       | 1                 | 2                 |
+       |-------------------|-------------------|
+       | _Optional_ Number | Object            |
+       | `a` or `i`n       | Block; Quote; Tag |
+       | `^` or `$`        | N/A               |
+    - `cc` would change current line
+    - Would enter **Edit Mode**
+
+===
+
+Update
+
+- (n)[`s`]ubstitute: Delete _n_ letters start from cursor position
+    + Enter **Edit Mode**
+- (n)[`r`]place: replace n letters start from cursor position with given letter
+    + Return to **Command Mode**
+- [`R`]eplace to keep replace until `esc`.
+
+===
+
+* [`y`]ank
+    - _+_
+       | 1                 | 2                 |
+       |-------------------|-------------------|
+       | _Optional_ Number | Object            |
+       | `a` or `i`n       | Block; Quote; Tag |
+       | `^` or `$`        | N/A               |
+    - To _Default Registry_
+    - `yy` would yank current line
+    - Would return to **Command Mode**
+
+===
+
+* [`p`|`P`]aste
+    - _Default Registry_ at cursor position(after / before)
+
+===
+
+Registry
+
+* Default - `0`
+* Deleted - `-`
+* System Clipboard - `+`
+* Named Registry - `a` to `z`
+* Use `"` to select registry for _Yank_ or _Paste_
+
+===
+
+Edit a portion
+
+**Select**(Visual) + any **Action**
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+===
+
+Search
+
+* `/` + _keywords_: search forwarded in buffer
+* `?` + _keywords_: search backwarded in buffer
+* `*`: search current word(under cursor postion) forwarded
+* `#`: search current word(under cursor postion) backwarded
+* `:%s/target/replacement/g`: Search and Replace in current buffer
+
+===
+
+Search (in) File / Buffer - [fzf.vim](https://github.com/junegunn/fzf.vim)
+
+![](./images/fzf.vim.png)
+<!-- .element: style="width: 90%; margin: auto;" -->
+
+===
+
+Utilities
+
+* `[c-r]` Redo
+* `u` Undo
+* _Visual_ + `u` cover selection to lowercase
+* _Visual_ + `U` convert selection to Uppercase
+* `J` join below line to current line
+* `z=` would auto correct current word's typo
+
+===
+
+Go to ...
+
+* _Line Number_ + `gg`: go to specific line
+*  `gg`: move cursor to the first line of the buffer
+*  `G`: move to the last line of the buffer
+* `gf`: go to file
+* `gd`: go to definition
+* `gr`: go to reference
+* `gx`: open hyper link in browser
+
+===
+
+### Mechanism of Vim Command 
+
+1. _Command_ + _Quantity_ + _Object_ 
+2. _Command_ + _Specific Position_
+3. _Command_ + _a_ / [_i_]n + _Block_ / _Tag_
+
+===
+
+## Customize Key Mapping
+
+* `<leader>` based keybinding
+* Can customize key mapping in different modes. See `:h key-mapping`
+
+===
+
+## Advanced Usage
+
+* Folding - `:h fold`
+* Marks - `:h mark`
+* Execute shell command - `:h shell`
+* Macro and Alias
+
+===
+
+## Recommend Plugins
+
+* [vim-plug](https://github.com/junegunn/vim-plug)
+* [NERDTree](https://github.com/preservim/nerdtree)
+* [coc.nvim](https://github.com/neoclide/coc.nvim)
+* [fzf.vim](https://github.com/junegunn/fzf.vim)
+* [vim-surround](https://github.com/tpope/vim-surround)
+
+===
+
+## Usage outside vim
+
+* vimium
+* terminal
+* ...
 
 ===
 
 ## References
 
-* [Learn Vimscript the Hard Way](https://learnvimscriptthehardway.stevelosh.com/)
+* [Ed text editor](https://en.wikipedia.org/wiki/Ed_(text_editor))
+* [Emacs & Vim](https://martinklepsch.org/posts/emacs-and-vim.html)
+* [Emacs Evil-Mode](https://github.com/emacs-evil/evil)
+* [Learn VimScript the Hard way](https://learnvimscriptthehardway.stevelosh.com/)
+* [vim.org](http://vim.org/)
+* [neovim](https://neovim.io/)
 
 ---
 
