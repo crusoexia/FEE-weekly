@@ -5,20 +5,55 @@ theme: dracula
 
 # Discussion
 
-**Remove npm from node.js bundle**
+**Replace npm by corepack from node.js bundle**
 
 ![](./remove-npm.png)
 <!-- .element: style="width: 70%;margin: 0 auto;" -->
 
 ----
 
-## Result
+## A Sound Input
 
 https://github.com/nodejs/node/pull/51951#issuecomment-1975734926
 
+----
+
+> I'd like to **pose a much higher level technical question** before we get too into the weeds of "what package manager ships with node"
+> 
+> Here's the question
+> 
+> **"Should node.js ship with a package manager".**
+
+Point out the root problem.
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+----
+
+> ... it makes no sense to ship without the source code for a package manager **so that we are shipping a complete and useful tool out of the box**. ... **but synchronously and dynamically fetching a critical tool would make every single ci/cd flow slower** ...
+
+Clear the design goals & purpose: A useful tool out of the box; Less setup, fast to go.
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+----
+
+> 1. Does node.js desire to unbundle all package managers and only fetch package managers dynamically?
+> 1. If fetching package managers dynamically do we want to have a blessed way to do so?
+> 1. Are we ok shipping multiple package managers?
+> 1. Can each package manager have a say in the architecture of how they are embedded and distributed in nodejs?
+> 1. Do all package managers need to support a baseline set of features to ship with node.js?
+> 1. What are the requirements of a package manager to ship with Node.js (this one is critical and I think extremely important to answer before landing anything to avoid endless future debate)
+<!-- .element: style="font-size: 20pt" -->
+
+Ask more architectural questions. Weight each decision by the Gain and the Cost; Whether it brings the team closer to the design Goals.
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+----
+
+Architectural questions - A set of question around the design decisions, Usually the _Why_ questions that make the purpose to do so crystal clear.
+
 ---
 
-# React Updateds
+# React New APIs
 
 ---
 
@@ -29,8 +64,6 @@ https://github.com/nodejs/node/pull/51951#issuecomment-1975734926
 ## `useId`
 
 ----
-
-### Usage
 
 > * Generating unique IDs for accessibility attributes
 > * Generating IDs for several related elements
@@ -57,12 +90,10 @@ const inputId = useMemo(() => uniqueId(), []);
 
 ----
 
-Consider to use `uniqueId` or global incremental variable for SSR.
+_User Story:_ Generate unique id in SSR.
 
 * [Demo](http://localhost:3000/samples/useId)
-<!-- .element: class="fragment" data-fragment-index="1" -->
 * [Explanation](https://react.dev/reference/react/useId#why-is-useid-better-than-an-incrementing-counter)
-<!-- .element: class="fragment" data-fragment-index="2" -->
 
 ----
 
@@ -76,16 +107,14 @@ A React Hook that lets you update the state without blocking the UI.
 
 ----
 
-* [Reference](https://react.dev/reference/react/useTransition)
-* [Demo](http://localhost:3000/samples/useTransition)
+* [Usage](https://react.dev/reference/react/useTransition#usage)
+* [Bad case](http://localhost:3000/samples/useTransition)
 
 ----
 
 ## `useDeferredValue`
 
-----
-
-Just like using `lodash.debounce` with timeout `0`:
+Just like using `lodash.debounce` with timeout `0`, _with less code_.
 
 ----
 
@@ -124,7 +153,7 @@ useEffect(() => { dispatch(queryByKeywordAction(deferredKeyword)); }, [ deferred
 
 ----
 
-* [Demo](https://github.com/nodejs/node/pull/51951#issuecomment-1975734926)
+* [Demo](https://react.dev/reference/react/useDeferredValue#examples)
 
 ----
 
@@ -134,13 +163,13 @@ Provides a flexible way other than `redux`(or something else) to manage global s
 
 ----
 
-* [Demo](https://react.dev/reference/react/useSyncExternalStore)
+* [Usage](https://react.dev/reference/react/useSyncExternalStore)
 
 ---
 
 # React Canary
 
-Features that very possible to be available in React 19.
+Features that very possible to be available in _React 19_.
 
 ----
 
