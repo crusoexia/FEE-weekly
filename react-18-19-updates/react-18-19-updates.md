@@ -36,6 +36,7 @@ Clear the design goals & purpose: A useful tool out of the box; Less setup, fast
 
 ----
 
+More questions:
 > 1. Does node.js desire to unbundle all package managers and only fetch package managers dynamically?
 > 1. If fetching package managers dynamically do we want to have a blessed way to do so?
 > 1. Are we ok shipping multiple package managers?
@@ -44,12 +45,14 @@ Clear the design goals & purpose: A useful tool out of the box; Less setup, fast
 > 1. What are the requirements of a package manager to ship with Node.js (this one is critical and I think extremely important to answer before landing anything to avoid endless future debate)
 <!-- .element: style="font-size: 20pt" -->
 
-Ask more architectural questions. Weight each decision by the Gain and the Cost; Whether it brings the team closer to the design Goals.
+Clear the Gain and the Cost involved by the decision.
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
 ----
 
-Architectural questions - A set of question around the design decisions, Usually the _Why_ questions that make the purpose to do so crystal clear.
+Make the Right decision:
+
+![make decision](./make-decision.png)
 
 ---
 
@@ -63,11 +66,7 @@ Architectural questions - A set of question around the design decisions, Usually
 
 ## `useId`
 
-----
-
-> * Generating unique IDs for accessibility attributes
-> * Generating IDs for several related elements
-> * This hook is available in "Server Component".
+Generate unique IDs for elements. Available in **Server Component**.
 
 ----
 
@@ -85,7 +84,7 @@ const inputId = useMemo(() => uniqueId(), []);
 ```
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
-**Is that true?**
+**Really?**
 <!-- .element: class="fragment" data-fragment-index="2" -->
 
 ----
@@ -114,7 +113,7 @@ A React Hook that lets you update the state without blocking the UI.
 
 ## `useDeferredValue`
 
-Just like using `lodash.debounce` with timeout `0`, _with less code_.
+Kind of `useState` but will defer the state change. Just like using `lodash.debounce` with timeout `0`.
 
 ----
 
@@ -163,7 +162,7 @@ Provides a flexible way other than `redux`(or something else) to manage global s
 
 ----
 
-* [Usage](https://react.dev/reference/react/useSyncExternalStore)
+* [Usage](https://react.dev/reference/react/useSyncExternalStore#usage)
 
 ---
 
@@ -184,7 +183,7 @@ Provide instructions to bundlers compatible with _React Server Components_.
 
 ----
 
-['use server' Demo](https://localhost:3000/samples/directives)
+['use server' Demo](http://localhost:3000/samples/directives)
 
 ----
 
@@ -193,7 +192,7 @@ Mechanism and a set of APIs make state mutation management much easier.
 
 ----
 
-* `useOptimistic` - [Demo](https://localhost:3000/samples/actions)
+* `useOptimistic` - [Demo](http://localhost:3000/samples/actions)
 * `useFormStatus` - [Reference](https://react.dev/reference/react-dom/hooks/useFormStatus)
 * `useFormState` - [Reference](https://react.dev/reference/react-dom/hooks/useFormState)
 
