@@ -2,11 +2,11 @@
 theme: beige
 ---
 
-# Abort-Controller
-
----
-
 # Intro
+
+----
+
+`AbortController`
 
 ----
 
@@ -64,9 +64,51 @@ controller.abort();
 
 # Basic usage
 
+## Abort fetch
+
 ----
 
-## Abort Event Listener
+`await fetch(url, { signal });`
+
+----
+
+```JavaScript[4-10]
+const controller = new AbortController();
+const { signal } = controller;
+
+const resp = await fetch('dearAPI', { signal });
+
+signal.addEventListener('abort', () => {
+  console.log('I don\'t like you.');
+});
+
+controller.abort();
+```
+
+----
+
+## Example
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Abort fetch" src="https://codepen.io/crusoexia/embed/oNKeqNb?default-tab=js%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/crusoexia/pen/oNKeqNb">
+  Abort fetch</a> by Crusoe Xia (<a href="https://codepen.io/crusoexia">@crusoexia</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+----
+
+## Timeout
+
+```javascript
+  await fetch(url, { signal: AbortSignal.timeout(300) });
+```
+<!-- .element: class="fragment" -->
+
+---
+
+# Abort Event Listener
+
+----
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Abort Event Listener" src="https://codepen.io/crusoexia/embed/poMrdZX?default-tab=js%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/crusoexia/pen/poMrdZX">
@@ -210,32 +252,6 @@ React.useEffect(() => {
 
 ---
 
-# Abort fetch
-
-----
-
-`await fetch(url, { signal });`
-
-----
-
-## Example
-
-<iframe height="500" style="width: 100%;" scrolling="no" title="Abort fetch" src="https://codepen.io/crusoexia/embed/oNKeqNb?default-tab=js%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/crusoexia/pen/oNKeqNb">
-  Abort fetch</a> by Crusoe Xia (<a href="https://codepen.io/crusoexia">@crusoexia</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
-
-----
-
-## Timeout
-
-```javascript
-  await fetch(url, { signal: AbortSignal.timeout(300) });
-```
-
----
-
 # Implement Your Own Abortable API
 
 ----
@@ -243,9 +259,9 @@ React.useEffect(() => {
 Abortable API Signature:
 
 ```TypeScript
-function<P, R>(param: P, options: { signal: AbortSignal }): Promise<R>
+function<P, R>(param: P, options: { signal: AbortSignal }): Promise<R> | void
 ```
-<!-- .element: style="font-size:14pt;" -->
+<!-- .element: style="font-size:12pt;" -->
 
 ----
 
@@ -275,7 +291,23 @@ function myCoolPromiseAPI(/* …, */ { signal }) {
 
 ----
 
-## Example: Elegant Timeout
+## Example
+
+Abortable Timeout
+
+----
+
+```TypeScript[]
+React.useEffect(() => {
+  const timeoutId = setTimeout(/*...*/);
+
+  return () => {
+    clearTimeout(timeoutId);
+  };
+});
+```
+
+----
 
 ```TypeScript[]
 function elegantTimeout(
@@ -287,20 +319,14 @@ function elegantTimeout(
 ) {
   const { timeout, signal } = options;
   
-  return new Promise((resolve, reject) => {
-    if (signal?.aborted) {
-      reject(new Error(signal.reason));  
-    }
-    
-    const timeoutHandle = setTimeout(() => {
-      callback();
-      resolve();
-    }, timeout);
-    
-    signal?.addEventListener('abort', () => {
-      clearTimeout(timeoutHandle);
-      reject(new Error(signal.reason));
-    });
+  const timeoutId = setTimeout(() => {
+    callback();
+    resolve();
+  }, timeout);
+  
+  signal?.addEventListener('abort', () => {
+    clearTimeout(timeoutId);
+    console.log(signal.reason);
   });
 }
 ```
@@ -345,7 +371,10 @@ React.useEffect(() => {
 # Could I use it?
 
 All browsers support it since *2019*.
-<!-- .element: class="fragment" -->
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+[caniuse](https://caniuse.com/?search=abortcontroller)
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
 ---
 
