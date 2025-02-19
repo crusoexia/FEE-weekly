@@ -32,6 +32,20 @@
 To reduce the complexity and gap between server & client components
 (Like using server action; 'use cache' in experimental)
 
+----
+
+## Singleton
+
+Would blow up your mind.
+
+> First, during build, by default we use multiple workers. These are distinct child processes so unique copies of node that each load the module system and build some subset of pages. So for each worker spawned during the build you will see a copy of singleton initialization. We don't optimize for singletons because it would force us to use only 1 cpu core (JS is single-threaded) when for many machines more are available and thus builds can be faster if we parallelize.
+
+> Second, cjs vs webpack module loading seems like a bug/misconfiguration. In the first trace the module is being loaded by node which means it was at some point treated as an external. The second trace shows the same module being loaded by webpack so it wasn't treated as an external. This might be because the module is being used in RSC and client and we intentionally fork these modules so you can have one implementation for RSC and one for the client. In the future we may actually render the RSC part in it's own process which again would force there to be two different module instances.
+
+https://github.com/vercel/next.js/issues/65350
+
+Singleton and global state should be avoid.
+
 ---
 
 # Pros
@@ -90,6 +104,52 @@ Inflexible
 ---
 
 ## Remarkable examples
+
+---
+
+# Aspects need to understand
+
+----
+
+## Runtimes
+
+Which code would be run in **where** and **when**.
+
+----
+
+## Routes
+
+And the artifacts arranged around with the routing architecture.
+
+----
+
+## SSR, SSG
+
+And when will the rendering happens(It is pretty important).
+
+----
+
+## RSC
+
+----
+
+## Authentication
+
+----
+
+## Session Management
+
+----
+
+## Dynamic configuration
+
+----
+
+## Application Life cycle
+
+----
+
+## Unit Test
 
 ---
 
