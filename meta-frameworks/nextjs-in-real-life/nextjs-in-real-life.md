@@ -1,3 +1,14 @@
+---
+title: Next.js in Production
+theme: dracula
+---
+
+# Next.js in Production
+
+First-Hand Experience
+
+---
+
 # next.js In Real Life
 
 ## Impressions after rewrite "activeworks-webui" by next.js for a month
@@ -107,29 +118,71 @@ Inflexible
 
 ---
 
-# Aspects need to understand
+# Major Aspects
+
+You should understand to use `next.js` to build UI.
 
 ----
 
-## Runtimes
+## Next.js Artifacts
 
-Which code would be run in **where** and **when**.
+* layout.js
+* page.js
+* RCC & RSC
+* route.js
+* middleware.js
+* instrumentation.js
 
 ----
 
-## Routes
+## Routing
 
-And the artifacts arranged around with the routing architecture.
+File System Based Routing
 
 ----
 
-## SSR, SSG
+## SSR & SSG
 
-And when will the rendering happens(It is pretty important).
+When and where will the rendering happens matter a lot.
+
+----
+
+How to contorl the render mode?
+
+```typescript
+// page.tsx
+
+//...
+
+export const dynamic = 'force-dynamic';
+
+export const revalidate = 60;
+
+//...
+```
+
+See more [route segments](https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config).
+
+
+----
+
+## Runtime
+
+* Browser
+* node.js
+* Edge
 
 ----
 
 ## RSC
+
+Though the "React Server Component" ends with `.tsx`(or jsx), there is not much similarity
+between the "Client Component":
+
+* Only run on server just as an API which returns static html or JSON.
+* No `life-cycle`; There is no `mount`, `unmount` or `update`; No state and effects.
+* No interaction.
+* It can directly call server side APIs without `fetch`.
 
 ----
 
@@ -141,15 +194,16 @@ And when will the rendering happens(It is pretty important).
 
 ----
 
-## Dynamic configuration
-
-----
-
 ## Application Life cycle
 
 ----
 
 ## Unit Test
+
+* There is no difference to test `Client Component`.
+* For RSC, it requires `node` test environment.
+* `testing-library` is not designed for RSC. Use ReactDom server side render method instead.
+* Generally it is easy to test the `Route Handlers` which accept a `Request` and return a `Response`.
 
 ---
 
