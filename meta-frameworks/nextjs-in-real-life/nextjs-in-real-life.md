@@ -9,15 +9,7 @@ First-Hand Experience
 
 ---
 
-# next.js In Real Life
-
-## Impressions after rewrite "activeworks-webui" by next.js for a month
-
----
-
-# What had been done in one month?
-
-----
+## What had been done?
 
 * Passport integration
 * Session management
@@ -31,86 +23,49 @@ First-Hand Experience
 
 # Impressions
 
-* Start fast
-* There are differences
-
----
-
-# Facts
-
-* Framework compiler
-
-To reduce the complexity and gap between server & client components
-(Like using server action; 'use cache' in experimental)
+Pretty different than `SPA`
 
 ----
 
-## Singleton
-
-Would blow up your mind.
-
-> First, during build, by default we use multiple workers. These are distinct child processes so unique copies of node that each load the module system and build some subset of pages. So for each worker spawned during the build you will see a copy of singleton initialization. We don't optimize for singletons because it would force us to use only 1 cpu core (JS is single-threaded) when for many machines more are available and thus builds can be faster if we parallelize.
-
-> Second, cjs vs webpack module loading seems like a bug/misconfiguration. In the first trace the module is being loaded by node which means it was at some point treated as an external. The second trace shows the same module being loaded by webpack so it wasn't treated as an external. This might be because the module is being used in RSC and client and we intentionally fork these modules so you can have one implementation for RSC and one for the client. In the future we may actually render the RSC part in it's own process which again would force there to be two different module instances.
-
-https://github.com/vercel/next.js/issues/65350
-
-Singleton and global state should be avoid.
-
----
-
-# Pros
-
----
-
-## Isomorphic CAN reduce Duplication
-
-* Auth management
-* Reduce client-side API call and state management
-* Routing on one side
-
-----
-
-## Rich Render Patterns
-
-Fast First-Page-Rendering
-Render Performance
-A lot render best-practices
-
-----
-
-## Out of the Box
+**👍 Start fast**
 
 * Setup project fast
 * Start development fast
 * Setup deployment fast
-
----
-
-# Cons
+* A lot of out-of-the-box solutions(like next-auth)
 
 ----
 
-## Environment Diversity(or Pollution)
+**👎 Less flexible**
 
-Same code(Server-Action etc.) might be used by: Browser, node and 
-Edge server. Things goes worst for Testing which cannot leverage
-next.js and react's new compiler to handle specific syntax.
+* Framework intrusive(build, edge runtime etc.)
+* Framework limitation(middleware etc.)
 
 ----
 
-## Complex
+**👍 Isomorphic**
+
+* Reduce duplication
+  * Routing; Authentication
+* Reduce client-side JavaScript size
+* Reduce client-side complexity
+  * API call; State management
+
+----
+
+**👎 Complex**
 
 * More concepts
-* More area need to be take care
 * More mistakes
-* Environment differences
+* More area need to be take care
+* Environment diversity
 
 ----
 
-## Framework intrusive
+**👍 Rich Render Patterns**
 
-Inflexible
+* Fast First-Page-Rendering
+* Progressive Hydration
 
 ---
 
@@ -220,10 +175,12 @@ NextAuth({
     //...
   })
 ```
+<!-- .element: style="font-size: 11pt" -->
 
 ----
 
 ![OAuth](./diagrams/OAuth.svg)
+<!-- .element: style="width: 80%;margin: auto;" -->
 
 ----
 
@@ -235,7 +192,28 @@ NextAuth({
 
 ----
 
-## Application Life cycle
+## kubernetes
+
+----
+
+[Networking](https://ea-wiki.sp.k8su1.dev.activenetwork.com/en/arch/containerization#networking)
+
+----
+
+**Application(pod) management API inside k8s**
+
+* readiness/liveness probe
+* graceful shutdown
+
+----
+
+**Application Configuration**
+
+* _Environment Variables_ - bootstrap and secrets
+* _Central Config Service_ - env specifics
+  * `@active/central-config-client`
+
+![configurations](./diagrams/configurations.svg)
 
 ----
 
@@ -254,6 +232,31 @@ NextAuth({
 * For RSC, it requires `node` test environment.
 * `testing-library` is not designed for RSC. Use ReactDom server side render method instead.
 * Generally it is easy to test the `Route Handlers` which accept a `Request` and return a `Response`.
+
+---
+
+# Lesson Learned
+
+----
+
+## Singleton
+
+Would blow up your mind.
+
+----
+
+Things(cannot avoid) that would break singleton:
+
+* `child_process`
+* SSG and build time workers
+* Module resolution differences
+  * `cjs` vs `esm` vs `bundler`
+
+[An open issue of next.js](https://github.com/vercel/next.js/issues/65350)
+
+----
+
+Singleton and global state should be avoid.
 
 ---
 
