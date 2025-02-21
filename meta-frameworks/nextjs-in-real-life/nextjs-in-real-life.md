@@ -114,13 +114,9 @@ Inflexible
 
 ---
 
-## Remarkable examples
-
----
-
 # Major Aspects
 
-You should understand to use `next.js` to build UI.
+You should understand to use `next.js` to build full-stack React App.
 
 ----
 
@@ -135,15 +131,35 @@ You should understand to use `next.js` to build UI.
 
 ----
 
-## Routing
+## Runtime
 
-File System Based Routing
+![runtime](./diagrams/runtime.svg)
+
+----
+
+## File System Based Routing
+
+![file system routing](./diagrams/file-system-routing.svg)
+
+----
+
+![file system route mapping](./diagrams/file-system-route-mapping.svg)
+
+----
+
+## Deployment model
+
+![deployment model](./diagrams/deployment.svg)
 
 ----
 
 ## SSR & SSG
 
 When and where will the rendering happens matter a lot.
+
+----
+
+![SSR and SSG](./diagrams/SSR-and-SSG.svg)
 
 ----
 
@@ -163,38 +179,72 @@ export const revalidate = 60;
 
 See more [route segments](https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config).
 
-
 ----
 
-## Runtime
-
-* Browser
-* node.js
-* Edge
-
-----
-
-## RSC
+## React Server Component
 
 Though the "React Server Component" ends with `.tsx`(or jsx), there is not much similarity
 between the "Client Component":
 
+----
+
+**Differences**
+
 * Only run on server just as an API which returns static html or JSON.
+* Can call server side APIs directly without `fetch`.
 * No `life-cycle`; There is no `mount`, `unmount` or `update`; No state and effects.
 * No interaction.
-* It can directly call server side APIs without `fetch`.
+
+----
+
+**When to Use RSC**
+
+* Use Server Components for static content or data fetching that does not require interactivity.
+* Use Client Components for interactive elements that require state, effects, or event handling.
 
 ----
 
 ## Authentication
 
+[Auth.js](https://authjs.dev/) + keycloak + OAuth(OpenID)
+
+```typescript
+NextAuth({
+    //...
+    providers: [ Keycloak({
+      clientId: (await getConfig<string>('keycloakSetting.resource'))?.toUpperCase(),
+      clientSecret: await getConfig('keycloakSetting.secret'),
+      issuer: path.join(await getConfig('keycloakSetting.authServerUrl'), 'realms/active'),
+      checks: [ 'none' ],
+    }) ],
+    //...
+  })
+```
+
+----
+
+![OAuth](./diagrams/OAuth.svg)
+
 ----
 
 ## Session Management
 
+* jwt
+* Local session; Require sticky session
+* Remote session storage: database or redis or ...
+
 ----
 
 ## Application Life cycle
+
+----
+
+## Logging
+
+* Application log - _Kibana_
+  * `@active/logging`(winston)
+* Security event log - _Splunk_
+  * `@active/security-event-logging`
 
 ----
 
