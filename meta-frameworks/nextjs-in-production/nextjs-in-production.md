@@ -223,7 +223,7 @@ NextAuth({
 
 ----
 
-[Networking](https://ea-wiki.sp.k8su1.dev.activenetwork.com/en/arch/containerization#networking)
+Networking
 
 ----
 
